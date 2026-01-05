@@ -9,7 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Nexorra Studio | Creative Excellence",
+  title: "Nexorra Studio | Creative Agency",
   description:
     "Innovative design and development solutions from Nexorra Studio.",
 };
@@ -21,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.png" />
+      </head>
       <body className={`${montserrat.variable} font-sans antialiased`}>
         {children}
       </body>
