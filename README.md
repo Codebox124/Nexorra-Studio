@@ -1,10 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Nexorra Studio
 
-## Getting Started
+Nexorra Studio is a digital design and development studio focused on building modern, user-centred web experiences for startups and growing businesses. We specialise in crafting clean interfaces, scalable front-end solutions, and strong brand identities that help products look credible, convert users, and scale confidently.
 
-First, run the development server:
+What We Do
 
-```bash
+At Nexorra Studio, we help businesses turn ideas into polished digital products through:
+
+Website Design & Development – Modern, responsive, and performance-focused websites
+
+UI/UX Design – User-centred interfaces with clear flows and intuitive interactions
+
+Front-End Development – Scalable and maintainable front-end architecture
+
+Brand Identity – Visual systems that communicate trust and clarity
+
+Product Design for Startups – MVPs, landing pages, and growth-ready platforms
+
+We work remotely with clients across different time zones, delivering high-quality digital solutions tailored to business goals.
+
+Tech Stack
+
+This project is built with modern web technologies:
+
+Next.js – React framework for production-ready applications
+
+TypeScript – Type-safe and scalable development
+
+React – Component-based UI development
+
+CSS / Tailwind CSS (if applicable) – Clean, responsive styling
+
+Vercel – Deployment and hosting
+
+Getting Started
+
+First, install dependencies:
+
+npm install
+# or
+yarn install
+# or
+pnpm install
+
+
+Run the development server:
+
 npm run dev
 # or
 yarn dev
@@ -12,25 +52,42 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open your browser and visit:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+You can start editing the main page by modifying:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+app/page.tsx
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Changes will automatically reflect in the browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fonts & Optimisation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project uses Next.js Font Optimisation via next/font, ensuring optimal performance and automatic font loading. The Geist font family is used for a clean and modern aesthetic.
+
+Deployment
+
+The recommended deployment platform is Vercel, built by the creators of Next.js.
+
+To deploy:
+
+Push your project to GitHub
+
+Connect the repository to Vercel
+
+Deploy with zero configuration
+
+Learn more here:
+https://nextjs.org/docs/app/building-your-application/deploying
+
+About Nexorra Studio
+
+Nexorra Studio partners with startups, tech companies, and modern businesses to design and build digital products that are functional, elegant, and scalable. Our approach combines strategy, design, and engineering to create experiences users trust.
+
+📍 Remote — Worldwide
+🌍 Available for global projects
