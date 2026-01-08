@@ -1,6 +1,25 @@
 @import "tailwindcss";
 
-:root {
+@theme{
+  --font-nunito: 'nunito';
+  --font-sora: 'sora';
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../public/fonts/Nunito/Nunito-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: sora;
+  src: url(../public/fonts/Sora/Sora-VariableFont_wght.ttf);
+}
+
+
+
+
+
+/*:root {
   --background: #050505;
   --foreground: #ffffff;
   --primary: #8a2be2;
@@ -78,3 +97,4 @@ body {
     opacity: 1;
   }
 }
+*/
