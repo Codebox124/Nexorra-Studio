@@ -167,7 +167,7 @@ export default function ContactQuantum() {
         }}
       />
 
-      <main className="relative z-10 grid lg:grid-cols-2 min-h-screen">
+      <main className="relative z-10 grid lg:grid-cols-2 min-h-screen pt-20 sm:pt-24 lg:pt-28">
         {/* Left Section - Hero & Info */}
         <div className="relative lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-[#fffdf8]/10 flex flex-col justify-between overflow-hidden">
           <motion.div
