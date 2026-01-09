@@ -3,12 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Plus, Minus, Send, CheckCircle2 } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 type FormData = {
   name: string;
@@ -68,17 +62,17 @@ const RadioBox = ({
   <button
     type="button"
     onClick={onClick}
-    className={cn(
-      "relative w-full text-left p-4 sm:p-6 border border-[#fffdf8]/10 hover:border-[#9804bc]/50 transition-all duration-300 group overflow-hidden",
-      selected ? "bg-[#9804bc]/10 border-[#9804bc]" : "bg-transparent"
-    )}
+    className={`relative w-full text-left p-4 sm:p-6 border transition-all duration-300 group overflow-hidden ${
+      selected
+        ? "bg-[#9804bc]/10 border-[#9804bc]"
+        : "bg-transparent border-[#fffdf8]/10 hover:border-[#9804bc]/50"
+    }`}
   >
     <div className="flex justify-between items-center relative z-10">
       <span
-        className={cn(
-          "text-sm font-medium tracking-wide transition-colors",
+        className={`text-sm font-medium tracking-wide transition-colors ${
           selected ? "text-[#9804bc]" : "text-[#fffdf8]"
-        )}
+        }`}
       >
         {label}
       </span>
@@ -110,8 +104,11 @@ export default function ContactQuantum() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    if (!form.name || !form.email) {
+      alert("Please fill in required fields (Name and Email)");
+      return;
+    }
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setLoading(false);
@@ -195,14 +192,13 @@ export default function ContactQuantum() {
 
         {/* Right Section - Form */}
         <div className="bg-[#0c000f]">
-          <form onSubmit={handleSubmit}>
+          <div>
             {/* Input 01 */}
             <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16 hover:bg-[#fffdf8]/[0.02] transition-colors duration-500">
               <GridLabel number="01" text="What's your name?" />
               <input
                 type="text"
                 placeholder="John Doe"
-                required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0"
@@ -215,7 +211,6 @@ export default function ContactQuantum() {
               <input
                 type="email"
                 placeholder="john@company.com"
-                required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0"
@@ -283,12 +278,11 @@ export default function ContactQuantum() {
                     key={time}
                     type="button"
                     onClick={() => setForm({ ...form, timeline: time })}
-                    className={cn(
-                      "py-3 px-2 sm:px-4 text-xs sm:text-sm border transition-all duration-300",
+                    className={`py-3 px-2 sm:px-4 text-xs sm:text-sm border transition-all duration-300 ${
                       form.timeline === time
                         ? "border-[#9804bc] bg-[#9804bc] text-white"
                         : "border-[#fffdf8]/10 hover:border-[#fffdf8]/40 text-[#fffdf8]/60"
-                    )}
+                    }`}
                   >
                     {time}
                   </button>
@@ -319,6 +313,7 @@ export default function ContactQuantum() {
               </div>
 
               <button
+                onClick={handleSubmit}
                 disabled={loading}
                 className="group relative w-full sm:w-auto px-10 py-5 sm:py-6 bg-[#0c000f] text-white text-lg font-medium overflow-hidden min-w-[200px]"
               >
@@ -329,7 +324,7 @@ export default function ContactQuantum() {
                 </span>
               </button>
             </div>
-          </form>
+          </div>
 
           {/* FAQ Section */}
           <div className="border-t border-[#fffdf8]/10 bg-[#0c000f]">
