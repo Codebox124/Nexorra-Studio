@@ -1,7 +1,7 @@
 "use client"
 import CTASection from '@/components/home/CTASection'
 import FeaturedWork from '@/components/home/FeaturedWork'
-import Footer from '@/components/home/Footer'
+import Footer from '@/components/Footer'
 import HeroSection from '@/components/home/HeroSection'
 import PhilosophyStrip from '@/components/home/PhilosophyStrip'
 import ServicesOverview from '@/components/home/ServicesOverview'
@@ -17,7 +17,7 @@ function Home() {
       <ServicesOverview />
       <Testimonials />
       <CTASection />
-      <Footer />
+      
     </div>
   )
 }
