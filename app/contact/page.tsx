@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowUpRight, Plus, Minus, Send, CheckCircle2 } from "lucide-react";
 
 type FormData = {
@@ -43,6 +43,37 @@ const FAQS = [
   },
 ];
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const SLOW_EASE: [number, number, number, number] = [0.04, 0.62, 0.23, 0.98];
+
+const containerStagger: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const maskReveal: Variants = {
+  hidden: { y: "110%" },
+  show: {
+    y: "0%",
+    transition: { duration: 1, ease: EASE },
+  },
+};
+
+const itemSlideUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE },
+  },
+};
+
 const GridLabel = ({ number, text }: { number: string; text: string }) => (
   <div className="flex items-center gap-3 mb-4 opacity-50 font-mono text-[10px] sm:text-xs tracking-widest uppercase">
     <span className="text-[#9804bc]">{number}</span>
@@ -59,9 +90,10 @@ const RadioBox = ({
   onClick: () => void;
   label: string;
 }) => (
-  <button
+  <motion.button
     type="button"
     onClick={onClick}
+    whileTap={{ scale: 0.98 }}
     className={`relative w-full text-left p-4 sm:p-6 border transition-all duration-300 group overflow-hidden ${
       selected
         ? "bg-[#9804bc]/10 border-[#9804bc]"
@@ -76,10 +108,18 @@ const RadioBox = ({
       >
         {label}
       </span>
-      {selected && <CheckCircle2 size={16} className="text-[#9804bc]" />}
+      {selected && (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <CheckCircle2 size={16} className="text-[#9804bc]" />
+        </motion.div>
+      )}
     </div>
     <div className="absolute inset-0 bg-[#fffdf8]/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
-  </button>
+  </motion.button>
 );
 
 export default function ContactQuantum() {
@@ -129,36 +169,65 @@ export default function ContactQuantum() {
 
       <main className="relative z-10 grid lg:grid-cols-2 min-h-screen">
         {/* Left Section - Hero & Info */}
-        <div className="relative lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-[#fffdf8]/10 flex flex-col justify-between">
-          <div className="p-6 sm:p-8 lg:p-16">
+        <div className="relative lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-[#fffdf8]/10 flex flex-col justify-between overflow-hidden">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={containerStagger}
+            className="p-6 sm:p-8 lg:p-16"
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-medium tracking-tight leading-[1.1] mb-6 lg:mb-8">
-              Let's create something <br />
-              <span className="font-serif italic text-[#9804bc]">
-                extraordinary.
-              </span>
+              <div className="overflow-hidden">
+                <motion.div variants={maskReveal} className="block">
+                  Let's create something
+                </motion.div>
+              </div>
+              <div className="overflow-hidden">
+                <motion.div variants={maskReveal} className="block">
+                  <span className="font-serif italic text-[#9804bc]">
+                    extraordinary.
+                  </span>
+                </motion.div>
+              </div>
             </h1>
-            <p className="text-base sm:text-lg text-[#fffdf8]/60 font-light max-w-md leading-relaxed">
+            <motion.p
+              variants={itemSlideUp}
+              className="text-base sm:text-lg text-[#fffdf8]/60 font-light max-w-md leading-relaxed"
+            >
               We merge technical precision with aesthetic elegance to qualify
               leads and start conversations that matter.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="p-6 sm:p-8 lg:p-16 space-y-8 lg:space-y-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="p-6 sm:p-8 lg:p-16 space-y-8 lg:space-y-12"
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-mono text-[10px] text-[#fffdf8]/40 mb-3 uppercase tracking-wider">
                   Email
                 </h3>
-                <a
+                <motion.a
                   href="mailto:nexorrastudio@gmail.com"
-                  className="text-base sm:text-lg hover:text-[#9804bc] transition-colors flex items-center gap-2 group break-all"
+                  initial="initial"
+                  whileHover="hover"
+                  className="text-base sm:text-lg hover:text-[#9804bc] transition-colors flex items-center gap-2 w-fit break-all"
                 >
                   nexorrastudio@gmail.com
-                  <ArrowUpRight
-                    size={14}
-                    className="shrink-0 opacity-50 group-hover:opacity-100 transition-all"
-                  />
-                </a>
+                  <motion.span
+                    variants={{
+                      initial: { scale: 0, opacity: 0 },
+                      hover: { scale: 1, opacity: 1 },
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="text-[#9804bc] shrink-0"
+                  >
+                    <ArrowUpRight size={14} />
+                  </motion.span>
+                </motion.a>
               </div>
               <div>
                 <h3 className="font-mono text-[10px] text-[#fffdf8]/40 mb-3 uppercase tracking-wider">
@@ -187,38 +256,52 @@ export default function ContactQuantum() {
                 <span className="text-[#9804bc]">09:00 — 18:00 EST</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Section - Form */}
         <div className="bg-[#0c000f]">
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-10%" }}
+            variants={containerStagger}
+          >
             {/* Input 01 */}
-            <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16 hover:bg-[#fffdf8]/[0.02] transition-colors duration-500">
+            <motion.div
+              variants={itemSlideUp}
+              className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16 hover:bg-[#fffdf8]/[0.02] transition-colors duration-500"
+            >
               <GridLabel number="01" text="What's your name?" />
               <input
                 type="text"
                 placeholder="John Doe"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0"
+                className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0 transition-opacity duration-300 focus:opacity-100 opacity-80"
               />
-            </div>
+            </motion.div>
 
             {/* Input 02 */}
-            <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16 hover:bg-[#fffdf8]/[0.02] transition-colors duration-500">
+            <motion.div
+              variants={itemSlideUp}
+              className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16 hover:bg-[#fffdf8]/[0.02] transition-colors duration-500"
+            >
               <GridLabel number="02" text="What's your email?" />
               <input
                 type="email"
                 placeholder="john@company.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0"
+                className="w-full bg-transparent text-xl sm:text-2xl lg:text-3xl placeholder:text-[#fffdf8]/10 outline-none border-none p-0 focus:ring-0 transition-opacity duration-300 focus:opacity-100 opacity-80"
               />
-            </div>
+            </motion.div>
 
             {/* Grid Inputs 03 & 04 */}
-            <div className="grid sm:grid-cols-2 border-b border-[#fffdf8]/10">
+            <motion.div
+              variants={itemSlideUp}
+              className="grid sm:grid-cols-2 border-b border-[#fffdf8]/10"
+            >
               <div className="p-6 sm:p-8 lg:p-12 border-b sm:border-b-0 sm:border-r border-[#fffdf8]/10">
                 <GridLabel number="03" text="Company Name" />
                 <input
@@ -252,10 +335,13 @@ export default function ContactQuantum() {
                   </select>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Services 05 */}
-            <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16">
+            <motion.div
+              variants={itemSlideUp}
+              className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16"
+            >
               <GridLabel number="05" text="I'm interested in..." />
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 mt-6">
                 {SERVICES.map((service) => (
@@ -267,14 +353,18 @@ export default function ContactQuantum() {
                   />
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Timeline 06 */}
-            <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16">
+            <motion.div
+              variants={itemSlideUp}
+              className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16"
+            >
               <GridLabel number="06" text="Ideal Timeline" />
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6">
                 {TIMELINES.map((time) => (
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
                     key={time}
                     type="button"
                     onClick={() => setForm({ ...form, timeline: time })}
@@ -285,13 +375,16 @@ export default function ContactQuantum() {
                     }`}
                   >
                     {time}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Description 07 */}
-            <div className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16">
+            <motion.div
+              variants={itemSlideUp}
+              className="border-b border-[#fffdf8]/10 p-6 sm:p-8 lg:p-16"
+            >
               <GridLabel number="07" text="Project Details" />
               <textarea
                 rows={4}
@@ -300,21 +393,25 @@ export default function ContactQuantum() {
                 onChange={(e) =>
                   setForm({ ...form, description: e.target.value })
                 }
-                className="w-full bg-transparent text-lg lg:text-xl placeholder:text-[#fffdf8]/10 outline-none resize-none leading-relaxed"
+                className="w-full bg-transparent text-lg lg:text-xl placeholder:text-[#fffdf8]/10 outline-none resize-none leading-relaxed focus:placeholder:text-[#fffdf8]/20 transition-all"
               />
-            </div>
+            </motion.div>
 
             {/* Submit Footer */}
-            <div className="p-6 sm:p-8 lg:p-16 bg-[#fffdf8] text-[#0c000f] flex flex-col sm:flex-row justify-between items-center gap-8">
+            <motion.div
+              variants={itemSlideUp}
+              className="p-6 sm:p-8 lg:p-16 bg-[#fffdf8] text-[#0c000f] flex flex-col sm:flex-row justify-between items-center gap-8"
+            >
               <div className="max-w-xs text-center sm:text-left">
                 <p className="font-serif italic text-lg leading-tight">
                   "Good design is obvious. Great design is transparent."
                 </p>
               </div>
 
-              <button
+              <motion.button
                 onClick={handleSubmit}
                 disabled={loading}
+                whileTap={{ scale: 0.98 }}
                 className="group relative w-full sm:w-auto px-10 py-5 sm:py-6 bg-[#0c000f] text-white text-lg font-medium overflow-hidden min-w-[200px]"
               >
                 <div className="absolute inset-0 w-full h-full bg-[#9804bc] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
@@ -322,9 +419,9 @@ export default function ContactQuantum() {
                   {loading ? "Processing..." : "Send Request"}
                   {!loading && <Send size={18} />}
                 </span>
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
 
           {/* FAQ Section */}
           <div className="border-t border-[#fffdf8]/10 bg-[#0c000f]">
@@ -332,8 +429,12 @@ export default function ContactQuantum() {
               <GridLabel number="FAQ" text="Common Questions" />
               <div className="mt-8 space-y-4">
                 {FAQS.map((faq, idx) => (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1, duration: 0.5 }}
                     className="border border-[#fffdf8]/10 bg-[#fffdf8]/[0.02]"
                   >
                     <button
@@ -343,20 +444,37 @@ export default function ContactQuantum() {
                       <span className="text-sm sm:text-base font-medium pr-4">
                         {faq.question}
                       </span>
-                      <span className="text-[#9804bc] shrink-0">
+                      <motion.span
+                        animate={{ rotate: faqOpen === idx ? 180 : 0 }}
+                        className="text-[#9804bc] shrink-0"
+                      >
                         {faqOpen === idx ? (
                           <Minus size={16} />
                         ) : (
                           <Plus size={16} />
                         )}
-                      </span>
+                      </motion.span>
                     </button>
                     <AnimatePresence>
                       {faqOpen === idx && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
+                          animate={{
+                            height: "auto",
+                            opacity: 1,
+                            transition: {
+                              height: { duration: 0.4, ease: SLOW_EASE },
+                              opacity: { duration: 0.25, delay: 0.15 },
+                            },
+                          }}
+                          exit={{
+                            height: 0,
+                            opacity: 0,
+                            transition: {
+                              height: { duration: 0.3, ease: SLOW_EASE },
+                              opacity: { duration: 0.1 },
+                            },
+                          }}
                           className="overflow-hidden"
                         >
                           <div className="p-5 sm:p-6 pt-0 text-[#fffdf8]/60 text-sm leading-relaxed max-w-lg">
@@ -365,7 +483,7 @@ export default function ContactQuantum() {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
