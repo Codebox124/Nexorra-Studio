@@ -4,11 +4,11 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion"
 
 const HeroSection = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(err => console.log("Autoplay prevented:", err));
+      videoRef.current.play().catch((err: any) => console.log("Autoplay prevented:", err));
     }
   }, []);
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black py-25">
-      
+
       {/* Background Video */}
       <video
         ref={videoRef}
@@ -34,9 +34,10 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-30"
       >
-        <source src="https://cdn.coverr.co/videos/coverr-abstract-digital-particles-8267/1080p.mp4" type="video/mp4" />
+        <source src="/bg.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40" />
@@ -52,7 +53,7 @@ const HeroSection = () => {
             duration: 0.7,
             ease: "easeInOut"
           }}
-          className="text-4xl font-sora md:text-8xl font-bold text-white mb-8 leading-tight"
+          className="text-4xl font-sora md:text-7xl font-bold text-white mb-8 leading-tight"
         >
           We build digital experiences<br />
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
