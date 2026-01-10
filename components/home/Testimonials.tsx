@@ -6,29 +6,50 @@ import { fromBottomToTop } from "../Animations";
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   
-  const testimonials = [
-    {
-      quote: "They didn't just build our platform—they transformed how we think about our business. The results exceeded every expectation.",
-      author: "Sarah Chen",
-      role: "CEO",
-      company: "TechFlow",
-      logo: "TF"
-    },
-    {
-      quote: "Working with this team felt like having an extension of our own. Their strategic insights and execution were flawless.",
-      author: "Marcus Rodriguez",
-      role: "CMO",
-      company: "Luxe",
-      logo: "LX"
-    },
-    {
-      quote: "The attention to detail and user experience they delivered helped us achieve 10x growth in our first year. Incredible partners.",
-      author: "Emily Nakamura",
-      role: "Founder",
-      company: "FinanceAI",
-      logo: "FA"
-    }
-  ];
+const testimonials = [
+  {
+    quote:
+      "Great work from Raji, trustworthy product for us. Problem solved exactly as needed.",
+    author: "Apilko",
+    role: "Client",
+    company: "Australia",
+    logo: "AU",
+  },
+  {
+    quote:
+      "Great buyer to work with. I ordered a website calculator and it was delivered very fast. If you need someone reliable, he is the right person.",
+    author: "Code_box121",
+    role: "Client",
+    company: "Nigeria",
+    logo: "NG",
+  },
+  {
+    quote:
+      "Raji did an absolutely amazing job creating my website. From the start, he understood exactly what I was looking for and brought my vision to life perfectly. His attention to detail and professionalism stood out. The final result exceeded my expectations.",
+    author: "Ryan M.",
+    role: "Client",
+    company: "Iqballaz Customs",
+    logo: "IQ",
+  },
+  {
+    quote:
+      "Raji delivered an excellent restaurant website for Lafun NG. The design was clean, modern, and perfectly matched our brand. The site improved our online presence and made it easier for customers to engage with us.",
+    author: "Lafun NG",
+    role: "Restaurant Owner",
+    company: "Lafun NG",
+    logo: "LN",
+  },
+  {
+    quote:
+      "Raji helped recover and rebuild our website that had been abandoned since 2008. He modernized the platform, restored functionality, and brought the project back to life with great attention to detail. Truly impressive work.",
+    author: "Mr. Atiyebi",
+    role: "Client",
+    company: "Vote united",
+    logo: "MA",
+  },
+];
+
+
 
   useEffect(() => {
     const interval = setInterval(() => {
