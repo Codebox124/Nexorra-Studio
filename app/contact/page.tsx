@@ -144,15 +144,17 @@ export default function ContactQuantum() {
     }));
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit =  () => {
     if (!form.name || !form.email) {
       alert("Please fill in required fields (Name and Email)");
       return;
     }
-    setLoading(true);
+
+    //console.log(form)
+    /*setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setLoading(false);
-    alert("Message Transmitted.");
+    alert("Message Transmitted.");*/
   };
 
   return (
@@ -260,7 +262,7 @@ export default function ContactQuantum() {
         </div>
 
         {/* Right Section - Form */}
-        <div className="bg-[#0c000f]">
+        <form action="https://formsubmit.co/nexorrastudio@gmail.com" method="POST" /*onSubmit={e=>e.preventDefault()}*/ className="bg-[#0c000f]">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -274,6 +276,7 @@ export default function ContactQuantum() {
             >
               <GridLabel number="01" text="What's your name?" />
               <input
+              name="name"
                 type="text"
                 placeholder="John Doe"
                 value={form.name}
@@ -289,6 +292,7 @@ export default function ContactQuantum() {
             >
               <GridLabel number="02" text="What's your email?" />
               <input
+              name="email"
                 type="email"
                 placeholder="john@company.com"
                 value={form.email}
@@ -306,6 +310,7 @@ export default function ContactQuantum() {
                 <GridLabel number="03" text="Company Name" />
                 <input
                   type="text"
+                  name="company-name"
                   placeholder="Nexorra Studio"
                   value={form.company}
                   onChange={(e) =>
@@ -319,6 +324,7 @@ export default function ContactQuantum() {
                 <div className="relative">
                   <select
                     value={form.budget}
+                    name="budget-range"
                     onChange={(e) =>
                       setForm({ ...form, budget: e.target.value })
                     }
@@ -344,6 +350,7 @@ export default function ContactQuantum() {
             >
               <GridLabel number="05" text="I'm interested in..." />
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 mt-6">
+                <input type="text" name="services" className="hidden" value={form.services} />
                 {SERVICES.map((service) => (
                   <RadioBox
                     key={service}
@@ -362,6 +369,7 @@ export default function ContactQuantum() {
             >
               <GridLabel number="06" text="Ideal Timeline" />
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6">
+                <input type="text" name="ideal-timeline" className="hidden" value={form.timeline} />
                 {TIMELINES.map((time) => (
                   <motion.button
                     whileTap={{ scale: 0.95 }}
@@ -387,6 +395,7 @@ export default function ContactQuantum() {
             >
               <GridLabel number="07" text="Project Details" />
               <textarea
+              name="project-details"
                 rows={4}
                 placeholder="Tell us about the project..."
                 value={form.description}
@@ -488,7 +497,7 @@ export default function ContactQuantum() {
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </main>
     </div>
   );
