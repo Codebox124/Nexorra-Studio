@@ -99,7 +99,8 @@ const HeroSection = () => {
             <ArrowRight className="w-5 h-5" />
           </button>
 
-          <button
+         <a href="/work">
+           <button
             className="
               w-full sm:w-auto
               flex items-center justify-center gap-2
@@ -115,6 +116,7 @@ const HeroSection = () => {
             <Play className="w-5 h-5" />
             View Our Work
           </button>
+         </a>
         </motion.div>
       </div>
     </section>
