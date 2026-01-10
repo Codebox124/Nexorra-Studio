@@ -45,7 +45,7 @@ export function ProjectCard({
       <CardFooter className="px-6 pb-6 pt-0">
         <Button
           onClick={onClick}
-          className="w-fit justify-between group/btn bg-transparent border border-[#9804bc] text-[#9804bc] text-sm hover:bg-[#9804bc]/30 hover:text-white transition-all duration-300"
+          className="w-fit justify-between group/btn bg-transparent border border-[#9804bc] text-white text-sm hover:bg-[#9804bc]/30 hover:text-white transition-all duration-300"
         >
           View Details
           <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform" />

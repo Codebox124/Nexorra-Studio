@@ -8,32 +8,34 @@ import { ProjectDialog } from "./_components/projectDialog";
 // Sample data for works/projects
 const PROJECTS = [
   {
-    title: "IQBALAZ WEBSITE",
-    description: "Brand identity and visual system for a tech startup.",
+    title: "IQBALLAZ WEBSITE",
+    description:
+      "Official site of Iqballaz Customs, a vehicle customization and auto detailing service",
     image: "./projects/iqballaz.png",
     fullDescription:
-      "A comprehensive brand identity and visual system designed for a cutting-edge tech startup. This project involved creating a cohesive design language that reflects innovation and professionalism.",
+      "This is the official site of Iqballaz Customs, a vehicle customization and auto detailing service based in Houston, Texas. The website highlights services like vinyl wraps, window tinting, paint protection film (PPF), ceramic coating, powder coating, suspension work, and other vehicle aesthetic upgrades.",
     category: "Web Design & Development",
     year: "2024",
-    client: "Iqbalaz",
+    client: "Iqballaz",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    href: "https://iqbalaz.com",
+    href: "https://www.iqballazcustoms.com/",
   },
   {
     title: "BAMHIRE WEBSITE",
-    description: "Dynamic motion graphics for marketing campaigns.",
+    description:
+      "BAM Hiren is a HR & recruitment platform focused on connecting employers with job-seekers.",
     image: "./projects/bamhire.png",
     fullDescription:
-      "A dynamic platform featuring engaging motion graphics designed to elevate marketing campaigns and drive user engagement.",
+      "BAM Hire, a HR & recruitment platform focused on connecting employers with job-seekers, offering workforce solutions, and facilitating hiring across industries.",
     category: "Web Design & Motion Graphics",
     year: "2024",
     client: "Bamhire",
     technologies: ["React", "GSAP", "Three.js", "CSS3"],
-    href: "https://bamhire.com",
+    href: "https://bamhire.com ",
   },
   {
     title: "ABORDI WEBSITE",
-    description: "Complete redesign of an e‑commerce platform.",
+    description: "Complete redesign of an e-commerce platform.",
     image: "./projects/abordi.png",
     fullDescription:
       "A complete redesign of an e-commerce platform focused on improving user experience, conversion rates, and overall aesthetic appeal.",
@@ -41,7 +43,7 @@ const PROJECTS = [
     year: "2023",
     client: "Abordi",
     technologies: ["Shopify", "Liquid", "JavaScript", "SCSS"],
-    href: "https://abordi.com",
+    href: "https://abodi.vercel.app/",
   },
   {
     title: "MIGRA AFLUX WEBSITE",
@@ -53,7 +55,7 @@ const PROJECTS = [
     year: "2024",
     client: "Migra Aflux",
     technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
-    href: "https://migraaflux.com",
+    href: "https://migra-aflux.vercel.app/",
   },
   {
     title: "ENHANCE WEBSITE",
@@ -65,7 +67,7 @@ const PROJECTS = [
     year: "2024",
     client: "Enhance",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
-    href: "https://enhance.com",
+    href: "https://enhancesphere.vercel.app/",
   },
   {
     title: "HAPPY HAMSTER WEBSITE",
@@ -77,7 +79,31 @@ const PROJECTS = [
     year: "2024",
     client: "Happy Hamster",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
-    href: "https://enhance.com",
+    href: "https://happyhamster20.com/",
+  },
+  {
+    title: "TRBC WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/transport.png",
+    fullDescription:
+      "A transformative project focused on enhancing digital experiences through strategic design improvements and modern development practices.",
+    category: "Web Development & Strategy",
+    year: "2024",
+    client: "TransporterBikersClub",
+    technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
+    href: "https://www.trbc.ge/",
+  },
+  {
+    title: "MAKE IT 'N MARKET",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/market.png",
+    fullDescription:
+      "A transformative project focused on enhancing digital experiences through strategic design improvements and modern development practices.",
+    category: "Web Development & Strategy",
+    year: "2024",
+    client: "Make It 'N Market",
+    technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
+    href: "https://www.makeitandmarket.com/",
   },
 ];
 
