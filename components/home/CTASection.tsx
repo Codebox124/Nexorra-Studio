@@ -5,7 +5,7 @@ const CTASection = () => {
   return (
     <section className="py-40 px-8">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-6xl md:text-9xl font-bold text-white mb-12 tracking-tighter leading-[0.9]">
+        <h2 className="text-4xl md:text-9xl font-bold text-white mb-12 ">
           Ready to create<br />something great?
         </h2>
         

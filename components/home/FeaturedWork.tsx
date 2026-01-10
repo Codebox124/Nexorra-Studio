@@ -79,7 +79,7 @@ const FeaturedWork = () => {
   };
 
   return (
-    <section className="py-32 px-2 mx-auto bg-black min-h-screen">
+    <section className="md:py-32 py-10 px-2 mx-auto bg-black min-h-screen">
       <div className="mx-auto w-[90%]">
         <motion.div 
           className="mb-16 flex flex-col md:flex-row gap-5 md:items-center justify-between"
@@ -89,10 +89,10 @@ const FeaturedWork = () => {
           variants={containerVariants}
         >
           <motion.div variants={headerVariants}>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Featured Work
             </h2>
-            <p className="text-xl text-white/60">
+            <p className="text-base text-white/60">
               Transformative projects that moved the needle
             </p>
           </motion.div>
