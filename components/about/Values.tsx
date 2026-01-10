@@ -28,7 +28,7 @@ const Values = () => {
   ];
 
   return (
-    <section className="py-40 px-8">
+    <section className="md:py-40 md:px-8 px-2">
       <div className="max-w-[90rem] mx-auto">
         <div className="mb-24 text-center">
           <motion.p
@@ -46,7 +46,7 @@ const Values = () => {
                 duration: 0.7,
                 ease: "easeInOut",
             }}
-          className="text-6xl md:text-8xl font-bold text-white tracking-tighter">
+          className="text-4xl md:text-8xl font-bold text-white tracking-tighter">
             What drives us
           </motion.h2>
         </div>
@@ -63,7 +63,7 @@ const Values = () => {
                               ease: "easeInOut",
                           }}
                 key={idx}
-                className="group p-16 border-white/10 hover:bg-white/5 transition-all duration-500 cursor-pointer"
+                className="group md:p-16 p-7 border-white/10 hover:bg-white/5 transition-all duration-500 cursor-pointer"
               >
                 <div className="mb-8">
                   <Icon className="w-16 h-16 text-white/20 group-hover:text-white/40 transition-colors" strokeWidth={1} />

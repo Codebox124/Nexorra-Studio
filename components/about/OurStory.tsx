@@ -6,7 +6,7 @@ import { fromRightToLeft, fromTopToBottom } from "../Animations"
 
 function OurStory() {
   return (
-    <section className="md:py-24 bg-black text-white">
+    <section className="md:py-24 bg-[#0c000f] text-white">
       <div className="w-[90%] flex flex-col md:flex-row justify-between mx-auto gap-10">
         
         {/* Section Title */}

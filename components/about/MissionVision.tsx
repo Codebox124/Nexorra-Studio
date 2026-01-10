@@ -4,7 +4,7 @@ import { fromRightToLeft, fromTopToBottom } from "../Animations"
 
 const MissionVision = () => {
   return (
-    <section className="md:py-40 mt-10 px-2 bg-black">
+    <section className="md:py-40 pt-10 px-2 bg-[#0c000f]">
       <div className=" w-[90%] mx-auto">
         <div className="grid md:grid-cols-2 gap-24">
 
@@ -18,7 +18,7 @@ const MissionVision = () => {
               Our Mission
             </p>
 
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-12 tracking-tighter leading-[1.1]">
+            <h2 className="text-4xl md:text-7xl font-bold text-white mb-12 tracking-tighter leading-[1.1]">
               Helping ambitious brands
               build software that scales
             </h2>
@@ -46,7 +46,7 @@ const MissionVision = () => {
               Our Vision
             </p>
 
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-12 tracking-tighter leading-[1.1]">
+            <h2 className="text-4xl md:text-7xl font-bold text-white mb-12 tracking-tighter leading-[1.1]">
               Shaping the future of
               digital experiences
             </h2>

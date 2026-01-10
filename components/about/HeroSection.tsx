@@ -6,7 +6,7 @@ import { fromTopToBottom } from "../Animations"
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col gap-14 text-white min-h-screen overflow-hidden bg-black py-28">
+    <section className="relative flex flex-col gap-14 text-white min-h-screen overflow-hidden bg-[#0c000f] py-28">
       
       {/* Text Content */}
       <div className="w-[90%] mx-auto flex flex-col gap-6">

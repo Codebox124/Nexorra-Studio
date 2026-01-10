@@ -79,7 +79,7 @@ const FeaturedWork = () => {
   };
 
   return (
-    <section className="md:py-32 py-10 px-2 mx-auto bg-black min-h-screen">
+    <section className="md:py-32 py-10 px-2 mx-auto bg-[#0c000f] min-h-screen">
       <div className="mx-auto w-[90%]">
         <motion.div 
           className="mb-16 flex flex-col md:flex-row gap-5 md:items-center justify-between"

@@ -9,7 +9,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-40 px-8">
+    <section className="md:py-40 px-8">
       <div className="max-w-[90rem] mx-auto">
         <div className="mb-24 text-center">
           <motion.p
@@ -27,7 +27,7 @@ const Partners = () => {
                 duration: 0.7,
                 ease: "easeInOut",
             }}
-          className="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-8">
+          className="text-4xl md:text-8xl font-bold text-white tracking-tighter mb-8">
             Trusted by industry<br />leaders
           </motion.h2>
           <motion.p
@@ -37,7 +37,7 @@ const Partners = () => {
                           duration: 0.7,
                           ease: "easeInOut",
                       }}
-          className="text-xl text-white/60">
+          className="text-base text-white/60">
             We're proud to partner with forward-thinking brands
           </motion.p>
         </div>

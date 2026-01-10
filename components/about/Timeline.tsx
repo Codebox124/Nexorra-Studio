@@ -56,7 +56,7 @@ const Timeline = () => {
             initial={fromTopToBottom.initial}
             whileInView={fromTopToBottom.whileInView}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="text-6xl md:text-8xl font-bold text-white tracking-tighter"
+            className="text-4xl md:text-8xl font-bold text-white tracking-tighter"
           >
             The path that <br /> shaped Nexorra
           </motion.h2>
@@ -77,7 +77,7 @@ const Timeline = () => {
               <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[9px] bg-white rounded-full transition-all duration-300 group-hover:scale-150" />
 
               <div className="transition-all duration-500 group-hover:translate-x-4">
-                <span className="text-8xl font-bold text-white/10 group-hover:text-white/20 transition-colors">
+                <span className="text-6xl font-bold text-white/10 group-hover:text-white/20 transition-colors">
                   {milestone.year}
                 </span>
 
@@ -85,7 +85,7 @@ const Timeline = () => {
                   {milestone.title}
                 </h3>
 
-                <p className="text-lg text-white/70 mb-4 leading-relaxed max-w-2xl">
+                <p className="text-base text-white/70 mb-4 leading-relaxed max-w-2xl">
                   {milestone.description}
                 </p>
 

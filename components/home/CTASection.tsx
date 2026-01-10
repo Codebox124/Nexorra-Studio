@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-40 px-8">
+    <section className="py-40 md:px-8 px-4 bg-[#0c000f]">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl md:text-9xl font-bold text-white mb-12 ">
           Ready to create<br />something great?

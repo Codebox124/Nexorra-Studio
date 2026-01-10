@@ -7,7 +7,7 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    videoRef.current?.play().catch(() => {});
+    videoRef.current?.play().catch(() => { });
   }, []);
 
   const fromTopToBottom = {
@@ -47,18 +47,19 @@ const HeroSection = () => {
           whileInView={fromTopToBottom.whileInView}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="
-            font-sora font-bold text-white
-            text-[2.25rem] leading-tight
-            sm:text-5xl md:text-7xl
-            mb-6
-          "
+    font-sora font-bold text-white
+    text-[2.25rem] leading-tight
+    sm:text-5xl md:text-7xl
+    max-w-4xl mx-auto
+    mb-6
+  "
         >
-          We build digital experiences
-          <br />
+          We design and build digital products{" "}
           <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
             that move markets forward
           </span>
         </motion.h1>
+
 
         {/* Subtext */}
         <motion.p
@@ -99,9 +100,9 @@ const HeroSection = () => {
             <ArrowRight className="w-5 h-5" />
           </button>
 
-         <a href="/work">
-           <button
-            className="
+          <a href="/work">
+            <button
+              className="
               w-full sm:w-auto
               flex items-center justify-center gap-2
               px-8 py-4
@@ -112,11 +113,11 @@ const HeroSection = () => {
               hover:bg-white/10
               transition-all
             "
-          >
-            <Play className="w-5 h-5" />
-            View Our Work
-          </button>
-         </a>
+            >
+              <Play className="w-5 h-5" />
+              View Our Work
+            </button>
+          </a>
         </motion.div>
       </div>
     </section>

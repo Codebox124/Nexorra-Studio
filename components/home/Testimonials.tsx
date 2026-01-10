@@ -38,7 +38,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-32 px-6 bg-black">
+    <section className="py-32 px-6 bg-[#0c000f]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <motion.h2
