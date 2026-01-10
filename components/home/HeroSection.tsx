@@ -85,8 +85,9 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button
-            className="
+          <a href="/contact">
+            <button
+              className="
               w-full sm:w-auto
               flex items-center justify-center gap-3
               px-8 py-4
@@ -95,10 +96,11 @@ const HeroSection = () => {
               transition-all
               hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]
             "
-          >
-            Start Your Project
-            <ArrowRight className="w-5 h-5" />
-          </button>
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </a>
 
           <a href="/work">
             <button
