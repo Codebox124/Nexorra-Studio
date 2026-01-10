@@ -8,50 +8,51 @@ import { fromTopToBottom } from "../Animations";
 const Team = () => {
   const [hoveredMember, setHoveredMember] = useState<any>(null);
 
-  const teamMembers = [
-    {
-      name: "Raji Roqeeb",
-      role: "Founder & Fullstack Developer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "AC",
-      link:"#"
-    },
-    {
-      name: "Olaiwon Abdullahi",
-      role: "Fullstack Developer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "OA",
-      link:"#"
-    },
-    {
-      name: "Oyedeji Uzaymah",
-      role: "Frontend Developer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "OU",
-      link:"#"
-    },
-    {
-      name: "Adebayo Enoch",
-      role: "Frontend Developer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "AE",
-      link:"#"
-    },
-    {
-      name: "Meekah Bossman",
-      role: "Graphics Designer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "MB",
-      link:"#"
-    },
-    {
-      name: "Johnathan Destine",
-      role: "Frontend Developer",
-      bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptatum.",
-      initials: "JD",
-      link:"#"
-    }
-  ];
+ const teamMembers = [
+  {
+    name: "Raji Roqeeb",
+    role: "Technical Lead ",
+    bio: "Founder of Nexorra with a strong focus on building scalable, high-performance web and mobile products. Passionate about clean architecture, product strategy, and turning ideas into reliable digital solutions.",
+    initials: "RR",
+    link: "#"
+  },
+  {
+    name: "Olaiwon Abdullahi",
+    role: "Fullstack Developer",
+    bio: "Fullstack developer experienced in building robust backend systems and intuitive user interfaces. Focused on performance, security, and maintainable codebases.",
+    initials: "OA",
+    link: "#"
+  },
+  {
+    name: "Oyedeji Uzaymah",
+    role: "Frontend Developer",
+    bio: "Frontend developer dedicated to crafting responsive, user-friendly interfaces with modern frameworks. Strong attention to detail and user experience.",
+    initials: "OU",
+    link: "#"
+  },
+  {
+    name: "Adebayo Enoch",
+    role: "Frontend Developer",
+    bio: "Frontend engineer focused on building clean, accessible, and visually consistent interfaces that align with product goals and brand identity.",
+    initials: "AE",
+    link: "#"
+  },
+  {
+    name: "Meekah Bossman",
+    role: "Graphics Designer",
+    bio: "Creative designer responsible for visual identity, brand assets, and marketing creatives. Focused on clarity, consistency, and impactful design.",
+    initials: "MB",
+    link: "#"
+  },
+  {
+    name: "Johnathan Destine",
+    role: "Frontend Developer",
+    bio: "Frontend developer with a strong eye for layout and interaction. Builds smooth, engaging user experiences with performance in mind.",
+    initials: "JD",
+    link: "#"
+  }
+];
+
 
   return (
     <section className="py-40 px-8">
