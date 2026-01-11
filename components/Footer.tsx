@@ -4,11 +4,11 @@ import Image from "next/image";
 const Footer = () => {
   const socials= [{
     icon: Instagram,
-    link:"instagram.com/meekha_designs"
+    link:"https://www.instagram.com/meekha_designs"
   }, 
 {
   icon: Twitter,
-  link:"twitter.com/raji_thedev"
+  link:"https://www.twitter.com/raji_thedev"
 }
 ]
   return (
@@ -24,6 +24,7 @@ const Footer = () => {
               {socials.map((social, index) => {
                  const Icon = social.icon
                return <a
+               target="_blank"
                   key={index}
                   href={social.link}
                   className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all hover:scale-110"
