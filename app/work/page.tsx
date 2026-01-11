@@ -5,7 +5,6 @@ import { motion, Variants } from "framer-motion";
 import { ProjectCard } from "./_components/projectCard";
 import { ProjectDialog } from "./_components/projectDialog";
 
-// Sample data for works/projects
 const PROJECTS = [
   {
     title: "IQBALLAZ WEBSITE",
@@ -19,11 +18,12 @@ const PROJECTS = [
     client: "Iqballaz",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     href: "https://www.iqballazcustoms.com/",
+    type: "website",
   },
   {
     title: "BAMHIRE WEBSITE",
     description:
-      "BAM Hiren is a HR & recruitment platform focused on connecting employers with job-seekers.",
+      "BAMHIRE is a HR & recruitment platform focused on connecting employers with job-seekers.",
     image: "./projects/bamhire.png",
     fullDescription:
       "BAM Hire, a HR & recruitment platform focused on connecting employers with job-seekers, offering workforce solutions, and facilitating hiring across industries.",
@@ -32,18 +32,20 @@ const PROJECTS = [
     client: "Bamhire",
     technologies: ["React", "GSAP", "Three.js", "CSS3"],
     href: "https://bamhire.com ",
+    type: "website",
   },
   {
     title: "ABORDI WEBSITE",
     description: "Complete redesign of an e-commerce platform.",
     image: "./projects/abordi.png",
     fullDescription:
-      "A complete redesign of an e-commerce platform focused on improving user experience, conversion rates, and overall aesthetic appeal.",
+      "Abordi is your all-in-one AI command center curated by profession, powered by intelligence, and built to simplify your workflow. No tabs. No noise. Just results.",
     category: "E-commerce & UX Design",
     year: "2023",
     client: "Abordi",
     technologies: ["Shopify", "Liquid", "JavaScript", "SCSS"],
     href: "https://abodi.vercel.app/",
+    type: "website",
   },
   {
     title: "MIGRA AFLUX WEBSITE",
@@ -56,6 +58,46 @@ const PROJECTS = [
     client: "Migra Aflux",
     technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
     href: "https://migra-aflux.vercel.app/",
+    type: "website",
+  },
+  {
+    title: "POUR AUTORITY WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/POUR.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "Pour Authority",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://www.pour-authority.com/",
+    type: "website",
+  },
+  {
+    title: "KIDZVIDZ WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/kids.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "KidzVidz",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://www.kidz-vidz.com/",
+    type: "website",
+  },
+  {
+    title: "THE FESTIVE VILLA WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/villa.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "The Festive Villa",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://thefestivevillas.com/",
+    type: "website",
   },
   {
     title: "ENHANCE WEBSITE",
@@ -68,6 +110,7 @@ const PROJECTS = [
     client: "Enhance",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
     href: "https://enhancesphere.vercel.app/",
+    type: "website",
   },
   {
     title: "HAPPY HAMSTER WEBSITE",
@@ -80,6 +123,7 @@ const PROJECTS = [
     client: "Happy Hamster",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
     href: "https://happyhamster20.com/",
+    type: "website",
   },
   {
     title: "TRBC WEBSITE",
@@ -92,6 +136,7 @@ const PROJECTS = [
     client: "TransporterBikersClub",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
     href: "https://www.trbc.ge/",
+    type: "website",
   },
   {
     title: "MAKE IT 'N MARKET",
@@ -104,6 +149,60 @@ const PROJECTS = [
     client: "Make It 'N Market",
     technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
     href: "https://www.makeitandmarket.com/",
+    type: "website",
+  },
+  {
+    title: "LIFE OF SHIZ",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/lifeofshiz.png",
+    fullDescription:
+      "A transformative project focused on enhancing digital experiences through strategic design improvements and modern development practices.",
+    category: "Web Development & Strategy",
+    year: "2024",
+    client: "Shizea",
+    technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
+    href: "https://lifeofshiz.vercel.app/",
+    type: "website",
+  },
+  {
+    title: "LISATECH WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/lisatech.png",
+    fullDescription:
+      "A transformative project focused on enhancing digital experiences through strategic design improvements and modern development practices.",
+    category: "Web Development & Strategy",
+    year: "2024",
+    client: "Shizea",
+    technologies: ["Vue.js", "Nuxt", "Node.js", "MongoDB"],
+    href: "https://dronewastemgt.vercel.app/",
+    type: "website",
+  },
+  // DESIGN PROJECTS
+  {
+    title: "NEXORRA BRANDING",
+    description: "Complete visual identity and brand guidelines.",
+    image: "./projects/review.png",
+    fullDescription:
+      "A comprehensive branding project establishing the visual identity, typography, and color palette for Nexorra, creating a cohesive and modern brand presence.",
+    category: "Brand Identity",
+    year: "2024",
+    client: "Nexorra",
+    technologies: ["Illustrator", "Photoshop", "Indesign"],
+    href: "#",
+    type: "design",
+  },
+  {
+    title: "WEB3 DESIGNS UI",
+    description: "Futuristic fintech mobile application interface.",
+    image: "./projects/Artboard.png",
+    fullDescription:
+      "High-fidelity UI design for a next-gen fintech application, focusing on intuitive navigation, dark mode aesthetics, and data visualization.",
+    category: "UI/UX Design",
+    year: "2024",
+    client: "FinTech Corp",
+    technologies: ["Figma", "Protopie"],
+    href: "#",
+    type: "design",
   },
 ];
 
@@ -132,11 +231,16 @@ export default function WorksPage() {
     (typeof PROJECTS)[0] | null
   >(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<"website" | "design">("website");
 
   const handleProjectClick = (project: (typeof PROJECTS)[0]) => {
     setSelectedProject(project);
     setDialogOpen(true);
   };
+
+  const filteredProjects = PROJECTS.filter(
+    (project) => project.type === activeTab
+  );
 
   return (
     <div className="min-h-screen bg-[#0c000f] text-[#fffdf8] font-sans selection:bg-[#9804bc] selection:text-white">
@@ -183,15 +287,54 @@ export default function WorksPage() {
         </div>
 
         {/* Right Section – Projects Grid */}
-        <div className="bg-[#0c000f] p-4 sm:p-6">
+        <div className="bg-[#0c000f] p-4 sm:p-6 flex flex-col h-full">
+          {/* Tabs */}
+          <div className="flex gap-2 mb-8 sticky top-0 z-20 bg-[#0c000f]/80 backdrop-blur-sm py-4">
+            <button
+              onClick={() => setActiveTab("website")}
+              className={`relative px-5 py-2 rounded-none text-sm font-medium transition-colors duration-300 ${
+                activeTab === "website"
+                  ? "text-white border border-[#9804bc] "
+                  : "text-[#fffdf8]/60 hover:text-[#fffdf8]"
+              }`}
+            >
+              {activeTab === "website" && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-transparent rounded-full"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">Websites</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("design")}
+              className={`relative px-5 py-2 rounded-none text-sm font-medium transition-colors duration-300 ${
+                activeTab === "design"
+                  ? "text-white border border-[#9804bc] "
+                  : "text-[#fffdf8]/60 hover:text-[#fffdf8]"
+              }`}
+            >
+              {activeTab === "design" && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0  rounded-full"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">Designs</span>
+            </button>
+          </div>
+
           <motion.div
+            key={activeTab} // Add key to force re-animation on tab change
             initial="hidden"
             animate="show"
             variants={containerStagger}
             className="grid gap-6 md:grid-cols-2"
           >
-            {PROJECTS.map((proj, idx) => (
-              <motion.div key={idx} variants={itemSlideUp}>
+            {filteredProjects.map((proj, idx) => (
+              <motion.div key={`${proj.title}-${idx}`} variants={itemSlideUp}>
                 <ProjectCard
                   title={proj.title}
                   description={proj.description}
