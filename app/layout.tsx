@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -28,8 +29,9 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.variable} bg-[#0c000f] font-sans antialiased overflow-x-hidden`}>
         <Navbar />
-        
+
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
