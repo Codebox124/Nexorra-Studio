@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-black text-white py-16 px-2">
+      <div className=" mx-auto">
         <div className="flex flex-col md:flex-row p-4 justify-between gap-8">
           <div className="flex-1">
             <Image src="/logo.png" alt="logo" width={200} height={200} className="object-cover mt-[-90px]" />
@@ -27,20 +27,20 @@ const Footer = () => {
             <div className="">
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-white/60">
-              <li><a href="#" className="hover:text-white transition-colors">Strategy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Design</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Growth</a></li>
+              <li><a href="/services/web-design" className="hover:text-white transition-colors">Web Design</a></li>
+              <li><a href="/services/web-development" className="hover:text-white transition-colors">Web Development</a></li>
+              <li><a href="/services/branding" className="hover:text-white transition-colors">Branding</a></li>
+              <li><a href="/services/seo" className="hover:text-white transition-colors">SEO</a></li>
             </ul>
           </div>
           
           <div className="">
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-white/60">
-              <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Work</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
+              <li><a href="/work" className="hover:text-white transition-colors">Work</a></li>
+              <li><a href="/services" className="hover:text-white transition-colors">Services</a></li>
+              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
           </div>

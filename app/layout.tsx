@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" />
       </head>
-      <body className={`${montserrat.variable} font-sans antialiased overflow-x-hidden`}>
+      <body className={`${montserrat.variable} bg-[#0c000f] font-sans antialiased overflow-x-hidden`}>
         <Navbar />
         
         {children}

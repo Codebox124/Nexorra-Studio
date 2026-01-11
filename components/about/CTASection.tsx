@@ -14,7 +14,7 @@ const CTASection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
-          <button className="group px-12 py-6 bg-white text-black text-lg font-medium flex items-center justify-center gap-3 hover:gap-5 transition-all">
+          <button disabled className="group px-12 py-6 bg-white text-black text-lg font-medium flex items-center justify-center gap-3 hover:gap-5 transition-all">
             Join Our Team
             <ArrowRight className="w-6 h-6" />
           </button>

@@ -27,12 +27,12 @@ const Culture = () => {
   }, [activeImage])
 
   return (
-    <section className="py-40 px-8">
+    <section className="md:py-40 py-12 px-8">
       <div className="max-w-[90rem] mx-auto">
         <div className="mb-24 text-center">
           <p className="text-sm uppercase tracking-widest font-medium text-white/40 mb-6">Our Culture</p>
-          <h2 className="text-6xl md:text-8xl font-bold text-white tracking-tighter">
-            Behind the<br />scenes
+          <h2 className="text-4xl md:text-8xl font-bold text-white tracking-tighter">
+            Behind the scenes
           </h2>
         </div>
 
