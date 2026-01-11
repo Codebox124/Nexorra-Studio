@@ -31,16 +31,26 @@ interface menuProps {
 const MobileMenu = ({ currentPage }: menuProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navItems = ['Home', 'About', 'Services', 'Work', 'Contact'];
-  return <div className={`z-20 md:hidden fixed flex flex-col gap-3 left-0  text-white p-4 ${isMobileMenuOpen ? "bg-black/50  backdrop-blur-[10px] inset-0" : ""} right-0`}>
+  return <div className={`z-20 relative md:hidden fixed flex flex-col gap-3 left-0  text-white p-4 ${isMobileMenuOpen ? "bg-black/50  backdrop-blur-[10px] inset-0" : ""} right-0`}>
     <button
       onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       className="p-2"
     >
+      {/* Logo */}
+        
       {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
     </button>
+    <Image
+          src="/logo.png"
+          alt="Nexorra Studio Logo"
+          width={200}
+          height={200}
+          className="block md:hidden -top-15 right-0  object-cover absolute transition-transform duration-1000"
+          priority
+        />
     {
       isMobileMenuOpen && <div className="flex w-full h-full justify-center items-center flex-col gap-4">
-        {navItems.map((item) => (
+        {navItems.map((item:any) => (
           <a
             key={item}
             href={`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`}
