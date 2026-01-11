@@ -192,7 +192,7 @@ const PROJECTS = [
     type: "design",
   },
   {
-    title: "FINTECH APP UI",
+    title: "WEB3 DESIGNS UI",
     description: "Futuristic fintech mobile application interface.",
     image: "./projects/Artboard.png",
     fullDescription:
