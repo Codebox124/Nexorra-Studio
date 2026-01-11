@@ -23,7 +23,7 @@ const PROJECTS = [
   {
     title: "BAMHIRE WEBSITE",
     description:
-      "BAM Hiren is a HR & recruitment platform focused on connecting employers with job-seekers.",
+      "BAMHIRE is a HR & recruitment platform focused on connecting employers with job-seekers.",
     image: "./projects/bamhire.png",
     fullDescription:
       "BAM Hire, a HR & recruitment platform focused on connecting employers with job-seekers, offering workforce solutions, and facilitating hiring across industries.",
@@ -39,7 +39,7 @@ const PROJECTS = [
     description: "Complete redesign of an e-commerce platform.",
     image: "./projects/abordi.png",
     fullDescription:
-      "A complete redesign of an e-commerce platform focused on improving user experience, conversion rates, and overall aesthetic appeal.",
+      "Abordi is your all-in-one AI command center curated by profession, powered by intelligence, and built to simplify your workflow. No tabs. No noise. Just results.",
     category: "E-commerce & UX Design",
     year: "2023",
     client: "Abordi",
@@ -58,6 +58,45 @@ const PROJECTS = [
     client: "Migra Aflux",
     technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
     href: "https://migra-aflux.vercel.app/",
+    type: "website",
+  },
+  {
+    title: "POUR AUTORITY WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/POUR.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "Pour Authority",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://www.pour-authority.com/",
+    type: "website",
+  },
+  {
+    title: "KIDZVIDZ WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/kids.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "KidzVidz",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://www.kidz-vidz.com/",
+    type: "website",
+  },
+  {
+    title: "THE FESTIVE VILLA WEBSITE",
+    description: "In‑depth usability audit and redesign recommendations.",
+    image: "./projects/villa.png",
+    fullDescription:
+      "An in-depth usability audit followed by comprehensive redesign recommendations to enhance user flow and accessibility.",
+    category: "UX/UI Audit & Consulting",
+    year: "2024",
+    client: "The Festive Villa",
+    technologies: ["Figma", "Adobe XD", "User Testing", "Analytics"],
+    href: "https://thefestivevillas.com/",
     type: "website",
   },
   {
