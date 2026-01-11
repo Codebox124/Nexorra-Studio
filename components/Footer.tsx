@@ -1,6 +1,16 @@
+import { Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 
 const Footer = () => {
+  const socials= [{
+    icon: Instagram,
+    link:"instagram.com/meekha_designs"
+  }, 
+{
+  icon: Twitter,
+  link:"twitter.com/raji_thedev"
+}
+]
   return (
     <footer className="bg-black text-white py-16 px-2">
       <div className=" mx-auto">
@@ -11,15 +21,16 @@ const Footer = () => {
               Crafting digital excellence since 2020
             </p>
             <div className="flex gap-4">
-              {['Twitter', 'LinkedIn', 'Instagram', 'Dribbble'].map((social) => (
-                <a
-                  key={social}
-                  href="#"
+              {socials.map((social, index) => {
+                 const Icon = social.icon
+               return <a
+                  key={index}
+                  href={social.link}
                   className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all hover:scale-110"
                 >
-                  <span className="text-xs">{social[0]}</span>
+                  <Icon />
                 </a>
-              ))}
+              })}
             </div>
           </div>
           

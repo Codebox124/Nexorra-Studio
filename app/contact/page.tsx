@@ -263,6 +263,7 @@ export default function ContactQuantum() {
 
         {/* Right Section - Form */}
         <form action="https://formsubmit.co/nexorrastudio@gmail.com" method="POST" /*onSubmit={e=>e.preventDefault()}*/ className="bg-[#0c000f]">
+          <input type="hidden" name="_next" value="https://www.nexorrastudio.com/form-submitted" />
           <motion.div
             initial="hidden"
             whileInView="show"
