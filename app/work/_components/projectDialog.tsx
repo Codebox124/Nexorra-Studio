@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -29,76 +28,65 @@ interface ProjectDialogProps {
   };
 }
 
-export function ProjectDialog({
-  open,
-  onOpenChange,
-  project,
-}: ProjectDialogProps) {
+export function ProjectDialog({ open, onOpenChange, project }: ProjectDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="!max-w-4xl scrollbar-hide max-h-[90vh] overflow-y-auto bg-[#0c000f] border-[#fffdf8]/10 text-[#fffdf8] p-0">
-        {/* Close Button */}
+      <DialogContent className="!max-w-4xl scrollbar-hide max-h-[90vh] overflow-y-auto bg-background border-border text-foreground p-0">
+        {/* Close */}
         <button
           onClick={() => onOpenChange(false)}
-          className="absolute right-4 top-4 z-50 rounded-full p-2 bg-[#fffdf8]/5 hover:bg-[#9804bc]/20 border border-[#fffdf8]/10 hover:border-[#9804bc]/50 transition-all duration-300"
+          className="absolute right-4 top-4 z-50 rounded-full p-2 bg-secondary/60 hover:bg-primary/20 border border-border hover:border-primary/50 transition-all duration-300"
         >
-          <X className="h-4 w-4 text-[#fffdf8]" />
+          <X className="h-4 w-4 text-foreground" />
         </button>
 
-        {/* Hero Image */}
+        {/* Hero image */}
         <div className="relative w-full h-64 sm:h-80 overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-auto"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c000f] via-[#0c000f]/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
         </div>
 
         {/* Content */}
         <div className="p-6 sm:p-8 space-y-6">
-          {/* Header */}
           <DialogHeader>
-            <DialogTitle className="text-3xl sm:text-4xl font-medium text-[#fffdf8] mb-2">
+            <DialogTitle className="text-3xl sm:text-4xl font-semibold text-foreground mb-2">
               {project.title}
             </DialogTitle>
-            <DialogDescription className="text-base text-[#fffdf8]/70 leading-relaxed">
+            <DialogDescription className="text-base text-muted-foreground leading-relaxed">
               {project.fullDescription || project.description}
             </DialogDescription>
           </DialogHeader>
 
-          {/* Meta Information */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-6 border-y border-[#fffdf8]/10">
+          {/* Meta */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-6 border-y border-border">
             {project.category && (
               <div className="flex items-start gap-3">
-                <Code className="h-5 w-5 text-[#9804bc] mt-0.5" />
+                <Code className="h-4 w-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-xs text-[#fffdf8]/50 uppercase tracking-wider mb-1">
-                    Category
-                  </p>
-                  <p className="text-sm text-[#fffdf8]">{project.category}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Category</p>
+                  <p className="text-sm text-foreground">{project.category}</p>
                 </div>
               </div>
             )}
             {project.year && (
               <div className="flex items-start gap-3">
-                <Calendar className="h-5 w-5 text-[#9804bc] mt-0.5" />
+                <Calendar className="h-4 w-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-xs text-[#fffdf8]/50 uppercase tracking-wider mb-1">
-                    Year
-                  </p>
-                  <p className="text-sm text-[#fffdf8]">{project.year}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Year</p>
+                  <p className="text-sm text-foreground">{project.year}</p>
                 </div>
               </div>
             )}
             {project.client && (
               <div className="flex items-start gap-3">
-                <Users className="h-5 w-5 text-[#9804bc] mt-0.5" />
+                <Users className="h-4 w-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-xs text-[#fffdf8]/50 uppercase tracking-wider mb-1">
-                    Client
-                  </p>
-                  <p className="text-sm text-[#fffdf8]">{project.client}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Client</p>
+                  <p className="text-sm text-foreground">{project.client}</p>
                 </div>
               </div>
             )}
@@ -107,7 +95,7 @@ export function ProjectDialog({
           {/* Technologies */}
           {project.technologies && project.technologies.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-sm text-[#fffdf8]/50 uppercase tracking-wider">
+              <h3 className="text-xs text-muted-foreground uppercase tracking-wider">
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -117,7 +105,7 @@ export function ProjectDialog({
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="px-3 py-1.5 text-xs bg-[#fffdf8]/5 border border-[#fffdf8]/10 rounded-full text-[#fffdf8]/80 hover:border-[#9804bc]/50 hover:text-[#9804bc] transition-all duration-300"
+                    className="px-3 py-1.5 text-xs bg-secondary border border-border rounded-full text-foreground/80 hover:border-primary/50 hover:text-primary transition-all duration-300"
                   >
                     {tech}
                   </motion.span>
@@ -129,7 +117,7 @@ export function ProjectDialog({
           {/* Gallery */}
           {project.gallery && project.gallery.length > 0 && (
             <div className="space-y-3">
-              <h3 className="text-sm text-[#fffdf8]/50 uppercase tracking-wider">
+              <h3 className="text-xs text-muted-foreground uppercase tracking-wider">
                 Project Gallery
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -139,7 +127,7 @@ export function ProjectDialog({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="relative aspect-video overflow-hidden rounded-lg border border-[#fffdf8]/10 group"
+                    className="relative aspect-video overflow-hidden rounded-xl border border-border group"
                   >
                     <img
                       src={img}
@@ -152,19 +140,14 @@ export function ProjectDialog({
             </div>
           )}
 
-          {/* Action Button */}
+          {/* CTA */}
           {project.href && (
-            <div className="pt-4">
+            <div className="pt-2">
               <Button
-                className="w-full sm:w-auto bg-[#9804bc] hover:bg-[#9804bc]/80 text-white border-none transition-all duration-300"
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:brightness-110 border-none transition-all duration-300 shadow-[0_0_40px_-10px_hsl(72_100%_50%/0.3)]"
                 asChild
               >
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
-                >
+                <a href={project.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   Visit Live Project
                   <ExternalLink className="h-4 w-4" />
                 </a>

@@ -1,125 +1,122 @@
 "use client";
-import { ArrowRight, Play } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    videoRef.current?.play().catch(() => { });
-  }, []);
-
-  const fromTopToBottom = {
-    initial: { opacity: 0, y: -40 },
-    whileInView: { opacity: 1, y: 0 }
-  };
-
-  const fromLeftToRight = {
-    initial: { opacity: 0, x: -40 },
-    whileInView: { opacity: 1, x: 0 }
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black px-4">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* ── Atmospheric background ── */}
+      <div className="absolute inset-0 bg-background" />
 
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30"
-      >
-        <source src="/bg.mp4" type="video/mp4" />
-      </video>
+      {/* Primary radial glow — deep blue/purple */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 55% at 50% 45%, hsla(250, 70%, 20%, 0.65) 0%, hsla(230, 60%, 12%, 0.35) 40%, transparent 75%)",
+        }}
+      />
+      {/* Secondary glow layer */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 40% 35% at 45% 50%, hsla(260, 80%, 30%, 0.3) 0%, transparent 70%)",
+        }}
+      />
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(220,15%,50%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,15%,50%) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      {/* ── Content ── */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8 text-center">
 
-      <div className="relative z-10 w-full max-w-5xl text-center">
-
-        {/* Heading */}
-        <motion.h1
-          initial={fromTopToBottom.initial}
-          whileInView={fromTopToBottom.whileInView}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="
-    font-sora font-bold text-white
-    text-[2.25rem] leading-tight
-    sm:text-5xl md:text-7xl
-    max-w-4xl mx-auto
-    mb-6
-  "
+        {/* Label */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8"
         >
-          We design and build digital products{" "}
-          <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-            that move markets forward
+          Premium Design &amp; Development Agency
+        </motion.p>
+
+        {/* Mega headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+          className="font-sans font-semibold text-foreground leading-[1.1] text-[2.4rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[5.5rem] max-w-5xl mx-auto mb-8"
+        >
+          We craft{" "}
+          <span className="inline-block rounded-full border border-border/60 px-4 md:px-5 py-1 bg-secondary/40 backdrop-blur-sm">
+            <em className="font-display italic font-normal text-foreground">
+              exceptional
+            </em>
+          </span>{" "}
+          digital products that{" "}
+          <span className="inline-block rounded-full border border-border/60 px-4 md:px-5 py-1 bg-secondary/40 backdrop-blur-sm">
+            <em className="font-display italic font-normal text-foreground">
+              move markets
+            </em>
           </span>
         </motion.h1>
 
-
         {/* Subtext */}
         <motion.p
-          initial={fromTopToBottom.initial}
-          whileInView={fromTopToBottom.whileInView}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="
-            text-white/70
-            text-sm leading-relaxed
-            sm:text-lg md:text-2xl
-            max-w-3xl mx-auto
-            mb-10
-          "
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto mb-12 leading-[1.7]"
         >
-          Transforming ambitious ideas into market-leading digital products through
-          strategy, design, and engineering excellence.
+          Transforming ambitious ideas into market-leading digital products
+          through strategy, design, and engineering excellence.
         </motion.p>
 
-        {/* CTA */}
+        {/* CTAs */}
         <motion.div
-          initial={fromLeftToRight.initial}
-          whileInView={fromLeftToRight.whileInView}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <a href="/contact">
-            <button
-              className="
-              w-full sm:w-auto
-              flex items-center justify-center gap-3
-              px-8 py-4
-              bg-white text-black
-              rounded-full font-semibold
-              transition-all
-              hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]
-            "
-            >
-              Start Your Project
-              <ArrowRight className="w-5 h-5" />
-            </button>
+          <a
+            href="/contact"
+            className="rounded-full bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-[0_0_60px_-15px_hsl(72_100%_50%_/_0.35)] flex items-center gap-2 group"
+          >
+            Book a Call
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </a>
+          <a
+            href="/work"
+            className="rounded-full border border-border px-8 py-4 text-sm font-semibold text-foreground hover:border-primary/40 hover:bg-secondary/40 transition-all duration-300"
+          >
+            View Our Work
+          </a>
+        </motion.div>
 
-          <a href="/work">
-            <button
-              className="
-              w-full sm:w-auto
-              flex items-center justify-center gap-2
-              px-8 py-4
-              rounded-full font-semibold
-              bg-white/5 text-white
-              border border-white/20
-              backdrop-blur
-              hover:bg-white/10
-              transition-all
-            "
-            >
-              <Play className="w-5 h-5" />
-              View Our Work
-            </button>
-          </a>
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="mt-20 flex flex-col items-center gap-2"
+        >
+          <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground/60">
+            Scroll
+          </span>
+          <motion.div
+            animate={{ y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          >
+            <ChevronDown className="w-4 h-4 text-muted-foreground/40" />
+          </motion.div>
         </motion.div>
       </div>
     </section>

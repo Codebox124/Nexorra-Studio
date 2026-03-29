@@ -11,7 +11,7 @@ import React from 'react'
 
 function About() {
   return (
-    <div className='bg-black'>
+    <div className='bg-background'>
         <HeroSection />
         <OurStory />
         <MissionVision />

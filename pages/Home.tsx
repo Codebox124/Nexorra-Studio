@@ -1,25 +1,22 @@
-"use client"
-import CTASection from '@/components/home/CTASection'
-import FeaturedWork from '@/components/home/FeaturedWork'
-import Footer from '@/components/Footer'
-import HeroSection from '@/components/home/HeroSection'
-import PhilosophyStrip from '@/components/home/PhilosophyStrip'
-import ServicesOverview from '@/components/home/ServicesOverview'
-import Testimonials from '@/components/home/Testimonials'
-import React from 'react'
+"use client";
+import CTASection from "@/components/home/CTASection";
+import FeaturedWork from "@/components/home/FeaturedWork";
+import HeroSection from "@/components/home/HeroSection";
+import ServicesOverview from "@/components/home/ServicesOverview";
+import StatsSection from "@/components/home/StatsSection";
+import Testimonials from "@/components/home/Testimonials";
 
 function Home() {
   return (
-    <div className='bg-black'>
-        <HeroSection />
-      {/*<PhilosophyStrip />*/}
+    <div className="bg-background">
+      <HeroSection />
+      <StatsSection />
       <FeaturedWork />
       <ServicesOverview />
       <Testimonials />
       <CTASection />
-      
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

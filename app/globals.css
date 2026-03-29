@@ -7,6 +7,8 @@
 @theme {
   --font-nunito: "nunito";
   --font-sora: "sora";
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-display: var(--font-playfair), Georgia, serif;
 }
 
 @font-face {
@@ -18,86 +20,6 @@
   font-family: sora;
   src: url(../public/fonts/Sora/Sora-VariableFont_wght.ttf);
 }
-
-/*:root {
-  --background: #050505;
-  --foreground: #ffffff;
-  --primary: #8a2be2;
-  --primary-glow: radial-gradient(
-    rgba(138, 43, 226, 0.4),
-    rgba(138, 43, 226, 0)
-  );
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), sans-serif;
-  overflow-x: hidden;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 1.2s ease-out forwards;
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-*/
 
 /*---break---
 */
@@ -146,76 +68,89 @@ body {
 /*---break---
 */
 
+/* ============================================================
+   NEXORRA STUDIO — Dark-only design system
+   Accent: Lime/Chartreuse hsl(72, 100%, 50%)
+   Background: Near-black with blue undertone hsl(220, 20%, 4%)
+   ============================================================ */
+
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Core surfaces */
+  --background: hsl(220, 20%, 4%);
+  --foreground: hsl(0, 0%, 95%);
+  --card: hsl(220, 18%, 7%);
+  --card-foreground: hsl(0, 0%, 95%);
+  --popover: hsl(220, 18%, 7%);
+  --popover-foreground: hsl(0, 0%, 95%);
+
+  /* Accent — Lime/Chartreuse */
+  --primary: hsl(72, 100%, 50%);
+  --primary-foreground: hsl(220, 20%, 4%);
+
+  /* Elevated surfaces */
+  --secondary: hsl(220, 15%, 12%);
+  --secondary-foreground: hsl(0, 0%, 95%);
+  --muted: hsl(220, 15%, 12%);
+  --muted-foreground: hsl(220, 10%, 55%);
+
+  /* Accent alias */
+  --accent: hsl(220, 15%, 12%);
+  --accent-foreground: hsl(0, 0%, 95%);
+
+  /* Utility */
+  --destructive: hsl(0, 72%, 51%);
+  --border: hsl(220, 15%, 15%);
+  --input: hsl(220, 15%, 15%);
+  --ring: hsl(72, 100%, 50%);
+
+  /* Charts */
+  --chart-1: hsl(72, 100%, 50%);
+  --chart-2: hsl(260, 80%, 60%);
+  --chart-3: hsl(200, 70%, 55%);
+  --chart-4: hsl(330, 80%, 65%);
+  --chart-5: hsl(45, 90%, 55%);
+
+  /* Sidebar */
+  --sidebar: hsl(220, 18%, 7%);
+  --sidebar-foreground: hsl(0, 0%, 95%);
+  --sidebar-primary: hsl(72, 100%, 50%);
+  --sidebar-primary-foreground: hsl(220, 20%, 4%);
+  --sidebar-accent: hsl(220, 15%, 12%);
+  --sidebar-accent-foreground: hsl(0, 0%, 95%);
+  --sidebar-border: hsl(220, 15%, 15%);
+  --sidebar-ring: hsl(72, 100%, 50%);
 }
 
-/*---break---
-*/
-
+/* Keep .dark identical so shadcn/ui components render correctly */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: hsl(220, 20%, 4%);
+  --foreground: hsl(0, 0%, 95%);
+  --card: hsl(220, 18%, 7%);
+  --card-foreground: hsl(0, 0%, 95%);
+  --popover: hsl(220, 18%, 7%);
+  --popover-foreground: hsl(0, 0%, 95%);
+  --primary: hsl(72, 100%, 50%);
+  --primary-foreground: hsl(220, 20%, 4%);
+  --secondary: hsl(220, 15%, 12%);
+  --secondary-foreground: hsl(0, 0%, 95%);
+  --muted: hsl(220, 15%, 12%);
+  --muted-foreground: hsl(220, 10%, 55%);
+  --accent: hsl(220, 15%, 12%);
+  --accent-foreground: hsl(0, 0%, 95%);
+  --destructive: hsl(0, 72%, 51%);
+  --border: hsl(220, 15%, 15%);
+  --input: hsl(220, 15%, 15%);
+  --ring: hsl(72, 100%, 50%);
+  --sidebar: hsl(220, 18%, 7%);
+  --sidebar-foreground: hsl(0, 0%, 95%);
+  --sidebar-primary: hsl(72, 100%, 50%);
+  --sidebar-primary-foreground: hsl(220, 20%, 4%);
+  --sidebar-accent: hsl(220, 15%, 12%);
+  --sidebar-accent-foreground: hsl(0, 0%, 95%);
+  --sidebar-border: hsl(220, 15%, 15%);
+  --sidebar-ring: hsl(72, 100%, 50%);
 }
 
 /*---break---
@@ -230,16 +165,54 @@ body {
   }
 }
 
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(4px); }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-breathe {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+/* Text gradient — purple → pink → lime */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(280, 80%, 70%), hsl(330, 80%, 70%), hsl(72, 100%, 50%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar hide */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 .scrollbar-hide {
   -webkit-overflow-scrolling: touch;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

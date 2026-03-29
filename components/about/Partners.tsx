@@ -1,63 +1,68 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
-import { fromTopToBottom } from "../Animations";
-const Partners = () => {
-  const clients = [
-    "TECHFLOW", "LUXE", "FINANCEAI", "MEDIAHUB",
-    "INNOVATE", "NEXUS", "QUANTUM", "APEX",
-    "VERTEX", "STELLAR", "MOMENTUM", "PINNACLE"
-  ];
 
+const clients = [
+  "TECHFLOW", "LUXE", "FINANCEAI", "MEDIAHUB",
+  "INNOVATE", "NEXUS", "QUANTUM", "APEX",
+  "VERTEX", "STELLAR", "MOMENTUM", "PINNACLE",
+];
+
+const Partners = () => {
   return (
-    <section className="md:py-40 px-8">
-      <div className="max-w-[90rem] mx-auto">
-        <div className="mb-24 text-center">
+    <section className="py-24 md:py-40 px-6 md:px-8 bg-background border-t border-border">
+      <div className="max-w-360 mx-auto">
+        <div className="mb-20 text-center">
           <motion.p
-           initial={fromTopToBottom.initial}
-                      whileInView={fromTopToBottom.whileInView}
-                      transition={{
-                          duration: 0.7,
-                          ease: "easeInOut",
-                      }}
-          className="text-sm uppercase tracking-widest font-medium text-white/40 mb-6">Our Clients</motion.p>
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-5"
+          >
+            Our Clients
+          </motion.p>
           <motion.h2
-           initial={fromTopToBottom.initial}
-            whileInView={fromTopToBottom.whileInView}
-            transition={{
-                duration: 0.7,
-                ease: "easeInOut",
-            }}
-          className="text-4xl md:text-8xl font-bold text-white tracking-tighter mb-8">
-            Trusted by industry<br />leaders
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl md:text-7xl font-semibold text-foreground mb-6"
+          >
+            Trusted by industry{" "}
+            <em className="font-display italic font-normal">leaders</em>
           </motion.h2>
           <motion.p
-           initial={fromTopToBottom.initial}
-                      whileInView={fromTopToBottom.whileInView}
-                      transition={{
-                          duration: 0.7,
-                          ease: "easeInOut",
-                      }}
-          className="text-base text-white/60">
-            We're proud to partner with forward-thinking brands
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm text-muted-foreground"
+          >
+            We&apos;re proud to partner with forward-thinking brands
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px border border-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-px border border-border"
+        >
           {clients.map((client, idx) => (
             <div
               key={idx}
-              className="aspect-square flex items-center justify-center border-white/10 hover:bg-white/5 transition-all duration-300 cursor-pointer group"
+              className="aspect-square flex items-center justify-center hover:bg-secondary/40 transition-all duration-300 cursor-pointer group"
             >
-              <span className="text-xl font-bold text-white/30 group-hover:text-white/50 transition-colors tracking-wider">
+              <span className="text-sm font-semibold text-foreground/25 group-hover:text-foreground/50 transition-colors tracking-[0.2em]">
                 {client}
               </span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-
-export default Partners
+export default Partners;

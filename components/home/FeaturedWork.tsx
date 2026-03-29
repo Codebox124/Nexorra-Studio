@@ -1,205 +1,126 @@
-"use client"
+"use client";
 
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+const projects = [
+  { client: "TechFlow", name: "Global SaaS Platform", category: "Product Design & Development", image: "bg-[url(/saas.jpg)]" },
+  { client: "Luxe", name: "E-commerce Revolution", category: "Brand & Digital Experience", image: "bg-[url(/eccom.jpg)]" },
+  { client: "FinanceAI", name: "Next-Gen Banking App", category: "Mobile & Web Application", image: "bg-[url(/bank.jpg)]" },
+  { client: "MediaHub", name: "Content Platform Redesign", category: "UX Strategy & Design", image: "bg-[url(/content.png)]" },
+];
+
+const container = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+const headerV = {
+  hidden: { opacity: 0, y: -20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+};
+const rowV = {
+  hidden: { opacity: 0, x: -30, y: 15 },
+  show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
 const FeaturedWork = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const projects = [
-    {
-      client: "TechFlow",
-      name: "Global SaaS Platform",
-      category: "Product Design & Development",
-      image: "bg-[url(/saas.jpg)]"
-    },
-    {
-      client: "Luxe",
-      name: "E-commerce Revolution",
-      category: "Brand & Digital Experience",
-      image: "bg-[url(/eccom.jpg)]"
-    },
-    {
-      client: "FinanceAI",
-      name: "Next-Gen Banking App",
-      category: "Mobile & Web Application",
-      image: "bg-[url(/bank.jpg)]"
-    },
-    {
-      client: "MediaHub",
-      name: "Content Platform Redesign",
-      category: "UX Strategy & Design",
-      image: "bg-[url(/content.png)]"
-    }
-  ];
-
-  // Smooth animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const headerVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: -30 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94] as const // Custom bezier for smoothness
-      }
-    }
-  };
-
-  const projectVariants = {
-    hidden: { 
-      opacity: 0, 
-      x: -40,
-      y: 20
-    },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1] as const // Smooth ease-out curve
-      }
-    }
-  };
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section className="md:py-32 py-10 px-2 mx-auto bg-[#0c000f] min-h-screen">
-      <div className="mx-auto w-[90%]">
-        <motion.div 
-          className="mb-16 flex flex-col md:flex-row gap-5 md:items-center justify-between"
+    <section className="py-20 md:py-32 px-4 md:px-8 bg-background">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
+        <motion.div
+          className="mb-14 flex flex-col md:flex-row gap-5 md:items-center justify-between"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={container}
         >
-          <motion.div variants={headerVariants}>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Featured Work
-            </h2>
-            <p className="text-base text-white/60">
-              Transformative projects that moved the needle
+          <motion.div variants={headerV}>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">
+              Selected work
             </p>
+            <h2 className="text-4xl md:text-5xl font-semibold text-foreground">
+              Featured{" "}
+              <em className="font-display italic font-normal">Work</em>
+            </h2>
           </motion.div>
-          
-          <motion.span variants={headerVariants}>
-            <motion.a 
-              className="inline-block text-white border-white border-[1px] px-5 py-2 cursor-pointer rounded-full"
-              whileHover={{ 
-                scale: 1.05,
-                borderColor: "#ffffff",
-                transition: { duration: 0.2 }
-              }}
-              whileTap={{ scale: 0.98 }}
+
+          <motion.span variants={headerV}>
+            <a
               href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm text-foreground hover:border-primary/40 hover:bg-secondary/40 transition-all duration-300"
             >
               View All
-            </motion.a>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
           </motion.span>
         </motion.div>
 
-        <motion.div 
-          className="flex flex-col gap-12"
+        {/* Project rows */}
+        <motion.div
+          className="flex flex-col"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={container}
         >
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              variants={projectVariants}
-              onMouseEnter={() => setHoveredIndex(idx)} 
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="text-white cursor-pointer border-t-[1px] border-t-white/20 py-6 flex flex-col md:flex-row gap-6 h-auto md:h-[260px] group"
+              variants={rowV}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
+              className="text-foreground cursor-pointer border-t border-border py-7 flex flex-col md:flex-row gap-6 h-auto md:h-64 group"
             >
+              {/* Thumbnail */}
               <motion.div
-                className={`w-full md:w-[30%] h-[300px] md:h-full ${project.image} bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden`}
-                initial={{ scale: 1 }}
-                animate={{
-                  scale: hoveredIndex === idx ? 1.05 : 1
-                }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.34, 1.56, 0.64, 1] as const // Smooth bounce effect
-                }}
-              >
-                <motion.div 
-                  className="w-full h-full"
-                  animate={{
-                    filter: hoveredIndex === idx ? "brightness(1.1)" : "brightness(1)"
-                  }}
-                  transition={{ duration: 0.4 }}
-                />
-              </motion.div>
-              
+                className={`w-full md:w-[28%] h-72 md:h-full ${project.image} bg-cover bg-center rounded-xl overflow-hidden`}
+                animate={{ scale: hoveredIdx === idx ? 1.04 : 1 }}
+                transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] as const }}
+              />
+
+              {/* Info */}
               <div className="flex flex-col gap-3 justify-between flex-1">
                 <div>
-                  <motion.h2 
-                    className="text-4xl md:text-6xl font-bold cursor-pointer"
-                    animate={{
-                      x: hoveredIndex === idx ? 8 : 0
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      ease: [0.22, 1, 0.36, 1] as const
-                    }}
+                  <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-2">
+                    {project.client}
+                  </p>
+                  <motion.h2
+                    className="text-3xl md:text-5xl font-semibold"
+                    animate={{ x: hoveredIdx === idx ? 6 : 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                   >
                     {project.name}
                   </motion.h2>
-                  
+                  {/* Underline */}
                   <motion.div
-                    className="h-[2px] bg-white mt-2"
+                    className="h-px bg-primary mt-2"
                     initial={{ scaleX: 0 }}
-                    animate={{
-                      scaleX: hoveredIndex === idx ? 1 : 0
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.22, 1, 0.36, 1] as const
-                    }}
+                    animate={{ scaleX: hoveredIdx === idx ? 1 : 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
                     style={{ transformOrigin: "left" }}
                   />
                 </div>
-                
-                <motion.span 
-                  className="text-sm text-white/60"
-                  animate={{
-                    color: hoveredIndex === idx ? "rgb(255 255 255)" : "rgb(255 255 255 / 0.6)"
-                  }}
+
+                <motion.span
+                  className="text-sm text-muted-foreground"
+                  animate={{ color: hoveredIdx === idx ? "hsl(0 0% 95%)" : undefined }}
                   transition={{ duration: 0.3 }}
                 >
                   {project.category}
                 </motion.span>
               </div>
-              
+
+              {/* Arrow */}
               <motion.div
-                animate={{
-                  x: hoveredIndex === idx ? 8 : 0,
-                  rotate: hoveredIndex === idx ? -45 : 0
-                }}
-                transition={{
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1] as const
-                }}
-                className="ml-auto self-center md:self-start"
+                animate={{ x: hoveredIdx === idx ? 6 : 0, rotate: hoveredIdx === idx ? -45 : 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+                className="ml-auto self-center md:self-start mt-2"
               >
-                <ArrowRight className="w-6 h-6" />
+                <ArrowRight className="w-5 h-5 text-foreground/40 group-hover:text-primary transition-colors duration-300" />
               </motion.div>
             </motion.div>
           ))}

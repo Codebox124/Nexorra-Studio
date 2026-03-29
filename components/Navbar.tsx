@@ -1,161 +1,146 @@
-"use client"
+"use client";
 
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation"
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
   const pathname = usePathname();
-  const [currentPage, setCurrentPage] = useState(pathname);
-  useEffect(() => {
-    if (pathname === "/") {
-      setCurrentPage(`/home`)
-    } else {
-      setCurrentPage(pathname)
-    }
-    console.log(pathname)
-  }, [pathname])
+  const [currentPage, setCurrentPage] = useState<string>(pathname ?? "");
 
-  return <>
-    <DesktopNavBar currentPage={currentPage} />
-    <MobileMenu currentPage={currentPage} />
-  </>;
+  useEffect(() => {
+    setCurrentPage(pathname === "/" ? "/home" : (pathname ?? ""));
+  }, [pathname]);
+
+  return (
+    <>
+      <DesktopNavBar currentPage={currentPage} />
+      <MobileMenu currentPage={currentPage} />
+    </>
+  );
 };
 
 export default Navbar;
 
-interface menuProps {
-  currentPage: any;
+interface MenuProps {
+  currentPage: string;
 }
 
-const MobileMenu = ({ currentPage }: menuProps) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navItems = ['Home', 'About', 'Services', 'Work', 'Contact'];
-  return <div className={`z-20 relative md:hidden fixed flex flex-col gap-3 left-0  text-white p-4 ${isMobileMenuOpen ? "bg-black/50  backdrop-blur-[10px] inset-0" : ""} right-0`}>
-    <button
-      onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      className="p-2"
+const navItems = ["Home", "About", "Services", "Work", "Contact"];
+
+const MobileMenu = ({ currentPage }: MenuProps) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div
+      className={`z-50 md:hidden fixed left-0 right-0 top-0 transition-all duration-300 ${
+        open
+          ? "inset-0 bg-background/95 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
     >
-      {/* Logo */}
-        
-      {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-    </button>
-    <Image
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-5 py-4">
+        <Image
           src="/logo.png"
-          alt="Nexorra Studio Logo"
-          width={200}
-          height={200}
-          className="block md:hidden -top-15 right-0  object-cover absolute transition-transform duration-1000"
+          alt="Nexorra Studio"
+          width={140}
+          height={40}
+          className="object-contain"
           priority
         />
-    {
-      isMobileMenuOpen && <div className="flex w-full h-full justify-center items-center flex-col gap-4">
-        {navItems.map((item:any) => (
-          <a
-            key={item}
-            href={`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-white/80 relative hover:text-white transition-colors py-2 text-lg"
-          >
-            {item}
-            <span className={`absolute -bottom-1 left-0 ${currentPage === `/${item.toLowerCase()}` ? "w-full" : "w-0"} h-0.5 bg-[#9804bc] group-hover:w-full transition-all duration-300`} />
+        <button
+          onClick={() => setOpen(!open)}
+          className="p-2 text-foreground/70 hover:text-foreground transition-colors"
+        >
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Menu items */}
+      {open && (
+        <div className="flex flex-col items-center justify-center gap-6 pt-12">
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              onClick={() => setOpen(false)}
+              className={`text-2xl font-medium transition-colors ${
+                currentPage === `/${item.toLowerCase()}`
+                  ? "text-primary"
+                  : "text-foreground/70 hover:text-foreground"
+              }`}
+            >
+              {item}
+            </a>
+          ))}
+          <a href="/contact" onClick={() => setOpen(false)} className="mt-4">
+            <button className="px-8 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all shadow-[0_0_40px_-10px_hsl(72_100%_50%/0.4)]">
+              Get Started
+            </button>
           </a>
+        </div>
+      )}
+    </div>
+  );
+};
 
-        ))}
+const DesktopNavBar = ({ currentPage }: MenuProps) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handle = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handle);
+    return () => window.removeEventListener("scroll", handle);
+  }, []);
+
+  return (
+    <nav
+      className='  hidden md:block z-50 left-8 right-8 top-2 rounded-full transition-all duration-300 max-w-[1400px] mx-auto '
+    >
+      <div className="px-6 py-2 flex items-center justify-between">
+        {/* Logo */}
+        <Image
+          src="/logo.png"
+          alt="Nexorra Studio"
+          width={160}
+          height={44}
+          className="object-contain"
+          priority
+        />
+
+        {/* Nav links */}
+        <div className="flex items-center gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              className={`text-sm relative group transition-colors duration-200 ${
+                currentPage === `/${item.toLowerCase()}`
+                  ? "text-foreground"
+                  : "text-foreground/60 hover:text-foreground"
+              }`}
+            >
+              {item}
+              <span
+                className={`absolute -bottom-1 left-0 h-px bg-primary transition-all duration-300 ${
+                  currentPage === `/${item.toLowerCase()}`
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                }`}
+              />
+            </a>
+          ))}
+        </div>
+
+        {/* CTA */}
         <a href="/contact">
-
-          <button className="mt-4 px-6 py-3 bg-white text-black rounded-full font-semibold">
+          <button className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-[0_0_30px_-8px_hsl(72_100%_50%/0.3)]">
             Get Started
           </button>
         </a>
       </div>
-    }
-  </div>
-}
-
-
-const DesktopNavBar = ({ currentPage }: menuProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = ['Home', 'About', 'Services', 'Work', 'Contact'];
-  return <nav className={`fixed hidden md:block overflow-hidden max-w-[1230px] mx-auto z-20 rounded-full left-10 right-10 top-5 transition-bg duration-300 ease-in-out  ${isScrolled ? "bg-white/30 backdrop-blur-[10px]" : "bg-transparent"}`}>
-    <div className="max-w-7xl mx-auto px-6 py-4">
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <Image
-          src="/logo.png"
-          alt="Nexorra Studio Logo"
-          width={200}
-          height={200}
-          className="hidden md:block object-cover absolute transition-transform duration-1000"
-          priority
-        />
-        {/* Desktop Navigation */}
-        <div className="hidden w-[70%] justify-between md:flex ml-auto items-center gap-8">
-          <div className="flex items-center w-[60%] justify-between gap-3">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`${item === "Home" ? "/" : `/${item.toLowerCase()}`}`}
-                className="text-white/80 hover:text-white transition-colors relative group"
-              >
-                {item}
-                <span className={`absolute -bottom-1 left-0 ${currentPage === `/${item.toLowerCase()}` ? "w-full" : "w-0"} h-0.5 bg-[#9804bc] group-hover:w-full transition-all duration-300`} />
-              </a>
-            ))}
-          </div>
-          {/* CTA Button */}
-         <a href="/contact">
-          <button className="hidden md:block px-6 py-2.5 bg-white text-black rounded-full font-semibold hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all">
-            Get Started
-          </button>
-         </a>
-        </div>
-
-
-
-        {/* Mobile Menu Button */}
-        {/*<button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>*/}
-      </div>
-      {/*
-                isMobileMenuOpen && <div className="flex fixed inset-0 z-20">
-
-                </div>
-            */}
-      {/* Mobile Menu */}
-      {/*isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-6">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-white/80 hover:text-white transition-colors py-2 text-lg"
-                >
-                  {item}
-                </a>
-              ))}
-              <button className="mt-4 px-6 py-3 bg-white text-black rounded-full font-semibold">
-                Get Started
-              </button>
-            </div>
-          </div>
-        )*/}
-    </div>
-  </nav>
-}
+    </nav>
+  );
+};

@@ -1,9 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
@@ -15,40 +10,35 @@ interface ProjectCardProps {
   onClick?: () => void;
 }
 
-export function ProjectCard({
-  title,
-  description,
-  image,
-  onClick,
-}: ProjectCardProps) {
+export function ProjectCard({ title, description, image, onClick }: ProjectCardProps) {
   return (
-    <Card className="w-full p-0 bg-[#fffdf8]/2 backdrop-blur-2xl border-[#fffdf8]/10 shadow-none rounded-lg overflow-hidden hover:border-[#9804bc]/50 transition-all duration-300 group">
+    <Card className="w-full p-0 bg-card border-border shadow-none rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-300 group">
       <CardHeader className="p-0">
         <div className="overflow-hidden">
           <img
             src={image}
             alt={title}
-            className="h-48 w-full object-auto group-hover:scale-105 transition-transform duration-500"
+            className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
       </CardHeader>
 
-      <CardContent className="px-4">
-        <h3 className="text-2xl font-medium text-[#fffdf8] mb-3 group-hover:text-[#9804bc] transition-colors">
+      <CardContent className="px-5 pt-4 pb-2">
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-[#fffdf8]/70 text-sm leading-relaxed">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           {description}
         </p>
       </CardContent>
 
-      <CardFooter className="px-6 pb-6 pt-0">
+      <CardFooter className="px-5 pb-5 pt-2">
         <Button
           onClick={onClick}
-          className="w-fit justify-between group/btn bg-transparent border border-[#9804bc] text-white text-sm hover:bg-[#9804bc]/30 hover:text-white transition-all duration-300"
+          className="w-fit bg-transparent border border-primary/50 text-foreground text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
         >
           View Details
-          <ChevronRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform" />
+          <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
         </Button>
       </CardFooter>
     </Card>

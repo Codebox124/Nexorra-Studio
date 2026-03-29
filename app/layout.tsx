@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/next";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  style: ["normal", "italic"],
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Nexorra Studio | Creative Agency",
+  title: "Nexorra Studio | Premium Design & Development",
   description:
-    "Innovative design and development solutions from Nexorra Studio.",
+    "Premium digital product design & development agency. We craft exceptional digital experiences that move markets forward.",
 };
 
 export default function RootLayout({
@@ -27,13 +35,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" />
       </head>
-      <body className={`${montserrat.variable} bg-[#0c000f] font-sans antialiased overflow-x-hidden`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased overflow-x-hidden`}>
         <Navbar />
-
         {children}
         <Analytics />
         <Footer />
-        
+        <CookieConsent />
       </body>
     </html>
   );
