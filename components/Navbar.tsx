@@ -129,7 +129,7 @@ const MobileNav = ({ currentPage }: NavProps) => {
   return (
     <>
       {/* Top bar — always visible */}
-      <div className=" top-0 inset-x-0 z-50 md:hidden flex items-center justify-between px-5 py-4 bg-background/80 backdrop-blur-xl border-b border-border/40">
+      <div className="fixed top-0 inset-x-0 z-50 md:hidden flex items-center justify-between px-5 py-4 bg-background/80 backdrop-blur-xl border-b border-border/40">
         <a href="/" aria-label="Nexorra Studio home">
           <Image
             src="/logo.png"

@@ -9,7 +9,7 @@ const socials = [
 const Footer = () => {
   return (
     <footer className="bg-background border-t border-border text-foreground py-16 px-6 md:px-8">
-      <div className="max-w-[1400px] mx-auto">
+      <div className=" mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12">
 
           {/* Brand */}
