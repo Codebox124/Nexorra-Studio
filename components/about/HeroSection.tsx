@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col gap-14 text-foreground min-h-screen overflow-hidden bg-background py-32 pt-40">
+    <section className="relative flex flex-col gap-14 text-foreground min-h-screen overflow-hidden bg-background py-10 md:py-32 md:pt-40">
       {/* Atmospheric glow */}
       <div
         className="absolute inset-0 pointer-events-none"
