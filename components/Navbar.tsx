@@ -58,7 +58,7 @@ const DesktopNav = ({ currentPage }: NavProps) => {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 hidden md:block transition-all duration-300",
+        " top-0 inset-x-0 z-50 hidden md:block transition-all duration-300",
         scrolled
           ? "py-3 bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-sm"
           : "py-5 bg-transparent"
