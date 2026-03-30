@@ -100,7 +100,7 @@ export default function ServicesLanding() {
   return (
     <main className="bg-background text-foreground min-h-screen overflow-x-hidden">
       {/* Hero */}
-      <section className="relative pt-36 pb-20 px-6 md:px-8 overflow-hidden">
+      <section className="relative md:pt-36 md:pb-20 py-10 px-6 md:px-8 overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
