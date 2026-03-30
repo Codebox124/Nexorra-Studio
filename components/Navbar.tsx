@@ -34,7 +34,7 @@ const MobileMenu = ({ currentPage }: MenuProps) => {
 
   return (
     <div
-      className={`z-50 md:hidden fixed left-0 right-0 top-0 transition-all duration-300 ${
+      className={`z-50 md:hidden left-0 right-0 top-0 transition-all duration-300 ${
         open
           ? "inset-0 bg-background/95 backdrop-blur-xl"
           : "bg-transparent"
