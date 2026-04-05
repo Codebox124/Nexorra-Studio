@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { ProjectCard } from "./_components/projectCard";
 import { ProjectDialog } from "./_components/projectDialog";
+import { DesignGallery } from "./_components/designGallery";
 
 const PROJECTS = [
   // ── Websites ──────────────────────────────────────────────────────────────
@@ -235,31 +236,6 @@ const PROJECTS = [
     href: "https://enhancesphere.vercel.app/",
     type: "website",
   },
-  // ── Design ────────────────────────────────────────────────────────────────
-  {
-    title: "NEXORRA BRANDING",
-    description: "Complete visual identity system — wordmark, colour palette, typography and brand guidelines.",
-    image: "/projects/review.png",
-    fullDescription: "A comprehensive branding project establishing the visual identity, typography system, and colour palette for Nexorra Studio. The work spans logo design, brand voice, motion guidelines, and a full brand book — creating a cohesive presence that communicates precision and ambition.",
-    category: "Brand Identity",
-    year: "2024",
-    client: "Nexorra Studio",
-    technologies: ["Illustrator", "Photoshop", "Indesign", "Figma"],
-    href: "#",
-    type: "design",
-  },
-  {
-    title: "WEB3 DESIGNS UI",
-    description: "High-fidelity UI for a next-gen fintech app — dark mode, data visualisation and intuitive flows.",
-    image: "/projects/Artboard.png",
-    fullDescription: "High-fidelity UI design for a next-generation fintech application. The project focused on intuitive navigation architecture, dark mode aesthetics, real-time data visualisation components, and a design system built to scale across web and mobile surfaces.",
-    category: "UI/UX Design",
-    year: "2024",
-    client: "FinTech Corp",
-    technologies: ["Figma", "Protopie", "After Effects"],
-    href: "#",
-    type: "design",
-  },
 ];
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -356,24 +332,28 @@ export default function WorksPage() {
             ))}
           </div>
 
-          <motion.div
-            key={activeTab}
-            initial="hidden"
-            animate="show"
-            variants={containerStagger}
-            className="grid gap-5 md:grid-cols-2"
-          >
-            {filteredProjects.map((proj, idx) => (
-              <motion.div key={`${proj.title}-${idx}`} variants={itemSlideUp}>
-                <ProjectCard
-                  title={proj.title}
-                  description={proj.description}
-                  image={proj.image}
-                  onClick={() => handleProjectClick(proj)}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+          {activeTab === "design" ? (
+            <DesignGallery />
+          ) : (
+            <motion.div
+              key={activeTab}
+              initial="hidden"
+              animate="show"
+              variants={containerStagger}
+              className="grid gap-5 md:grid-cols-2"
+            >
+              {filteredProjects.map((proj, idx) => (
+                <motion.div key={`${proj.title}-${idx}`} variants={itemSlideUp}>
+                  <ProjectCard
+                    title={proj.title}
+                    description={proj.description}
+                    image={proj.image}
+                    onClick={() => handleProjectClick(proj)}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </main>
 
