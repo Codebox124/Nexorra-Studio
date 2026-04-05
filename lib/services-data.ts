@@ -3,6 +3,8 @@ export type ImpactMetric = {
   title: string;
   metric: string;
   metricLabel: string;
+  image: string;
+  href?: string;
 };
 
 export type ServiceStep = { id: string; title: string; desc: string };
@@ -66,15 +68,19 @@ export const servicesData: Record<string, ServiceData> = {
     impact: [
       {
         category: "SaaS",
-        title: "Dashboard Redesign",
+        title: "Attndr — Event Check-In App",
         metric: "45%",
         metricLabel: "Churn Reduction",
+        image: "/projects/attndr.png",
+        href: "https://attndr.xyz",
       },
       {
-        category: "Fintech",
-        title: "Mobile App UX",
+        category: "Knowledge Platform",
+        title: "Mindshare — Social Dashboard",
         metric: "9.2",
         metricLabel: "User Rating",
+        image: "/projects/mindshare.png",
+        href: "https://mindshare-phi.vercel.app",
       },
     ],
   },
@@ -118,16 +124,20 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     impact: [
       {
-        category: "E-comm",
-        title: "Checkout Flow",
+        category: "E-commerce",
+        title: "Escro Store — Secure Marketplace",
         metric: "22%",
         metricLabel: "Sales Lift",
+        image: "/projects/escro.png",
+        href: "https://escrostore.netlify.app",
       },
       {
-        category: "Enterprise",
-        title: "Legacy Migration",
+        category: "HR Platform",
+        title: "Bamhire — Recruitment Platform",
         metric: "1.2s",
         metricLabel: "Load Time",
+        image: "/projects/bamhire.png",
+        href: "https://bamhire.com",
       },
     ],
   },
@@ -176,16 +186,19 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     impact: [
       {
-        category: "Retail",
-        title: "Global Rebrand",
+        category: "Auto Customization",
+        title: "Iqballaz — Brand Identity",
         metric: "85%",
-        metricLabel: "Affinity",
+        metricLabel: "Brand Affinity",
+        image: "/projects/iqballaz.png",
+        href: "https://www.iqballazcustoms.com/",
       },
       {
-        category: "Startup",
-        title: "Series A Identity",
-        metric: "$12M",
-        metricLabel: "Raised",
+        category: "Studio Branding",
+        title: "Nexorra — Full Identity System",
+        metric: "100%",
+        metricLabel: "Original",
+        image: "/projects/review.png",
       },
     ],
   },
@@ -234,16 +247,20 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     impact: [
       {
-        category: "B2B",
-        title: "Inbound Pipeline",
+        category: "Digital Growth",
+        title: "Enhance Sphere — Inbound Pipeline",
         metric: "310%",
         metricLabel: "Traffic Increase",
+        image: "/projects/enhance.png",
+        href: "https://enhancesphere.vercel.app/",
       },
       {
-        category: "Travel",
-        title: "Organic Growth",
+        category: "Travel & Hospitality",
+        title: "The Festive Villas — Organic Growth",
         metric: "#1",
         metricLabel: "Rankings",
+        image: "/projects/festive.png",
+        href: "https://thefestivevillas.com/",
       },
     ],
   },
@@ -287,16 +304,20 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     impact: [
       {
-        category: "AdTech",
-        title: "Explainer Video",
+        category: "AI Product",
+        title: "Abordi — Animated Promo",
         metric: "60%",
         metricLabel: "Retention",
+        image: "/projects/abordi.png",
+        href: "https://abodi.vercel.app/",
       },
       {
-        category: "SaaS",
-        title: "App Promo",
+        category: "Electronics",
+        title: "Molaz Hub — Brand Motion",
         metric: "1M+",
-        metricLabel: "Views",
+        metricLabel: "Impressions",
+        image: "/projects/molaz.png",
+        href: "https://molazelectronicshub.com",
       },
     ],
   },
@@ -341,16 +362,20 @@ export const servicesData: Record<string, ServiceData> = {
     ],
     impact: [
       {
-        category: "Logistics",
-        title: "Core Systems",
+        category: "Environmental Tech",
+        title: "Drone Waste Mgt — System Audit",
         metric: "99.9%",
         metricLabel: "Uptime",
+        image: "/projects/lisatech.png",
+        href: "https://dronewastemgt.vercel.app/",
       },
       {
-        category: "Healthcare",
-        title: "Security Patch",
+        category: "Immigration Services",
+        title: "Migra Aflux — Security Review",
         metric: "0",
         metricLabel: "Vulnerabilities",
+        image: "/projects/migra.png",
+        href: "https://migra-aflux.vercel.app/",
       },
     ],
   },

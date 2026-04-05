@@ -16,7 +16,7 @@ type FormData = {
 
 const SERVICES = ["Web Design", "Development", "Branding", "SEO", "Motion Graphics", "Audit"];
 const TIMELINES = ["< 1 Month", "1-3 Months", "3-6 Months", "6+ Months"];
-const BUDGETS = ["$5k - $10k", "$10k - $25k", "$25k - $50k", "$50k+"];
+const BUDGETS = ["$300 – $1,000", "$1,000 – $3,500", "$3,500 – $10,000", "$10,000+"];
 
 const FAQS = [
   {

@@ -5,10 +5,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const projects = [
-  { client: "TechFlow", name: "Global SaaS Platform", category: "Product Design & Development", image: "bg-[url(/saas.jpg)]" },
-  { client: "Luxe", name: "E-commerce Revolution", category: "Brand & Digital Experience", image: "bg-[url(/eccom.jpg)]" },
-  { client: "FinanceAI", name: "Next-Gen Banking App", category: "Mobile & Web Application", image: "bg-[url(/bank.jpg)]" },
-  { client: "MediaHub", name: "Content Platform Redesign", category: "UX Strategy & Design", image: "bg-[url(/content.png)]" },
+  { client: "Bubble Bay Auto Spa", name: "Luxury Auto Spa", category: "Web Design & Development", href: "https://bubblesbayautospa.shop/", image: "bg-[url(/projects/bubble.png)]" },
+  { client: "Iqballaz Customs", name: "Premium Auto Customization", category: "Web Design & Development", href: "https://www.iqballazcustoms.com/", image: "bg-[url(/projects/iqballaz.png)]" },
+  { client: "The Festive Villas", name: "Luxury Villa Experience", category: "Web Design & Development", href: "https://thefestivevillas.com/", image: "bg-[url(/projects/festive.png)]" },
+  { client: "Attndr", name: "Smart Event Check-In App", category: "SaaS & Product Design", href: "https://attndr.xyz", image: "bg-[url(/projects/attndr.png)]" },
+  { client: "Molaz Electronics", name: "Electronics E-Commerce Hub", category: "E-commerce & Web Development", href: "https://molazelectronicshub.com", image: "bg-[url(/projects/molaz.png)]" },
+
 ];
 
 const container = {
@@ -68,8 +70,11 @@ const FeaturedWork = () => {
           variants={container}
         >
           {projects.map((project, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={rowV}
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
@@ -122,7 +127,7 @@ const FeaturedWork = () => {
               >
                 <ArrowRight className="w-5 h-5 text-foreground/40 group-hover:text-primary transition-colors duration-300" />
               </motion.div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

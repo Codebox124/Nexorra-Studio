@@ -132,7 +132,9 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            href="/contact"
+            href="https://calendly.com/rajcodes733/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-primary text-primary-foreground px-8 py-4 text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-[0_0_60px_-15px_hsl(72_100%_50%_/_0.35)] flex items-center gap-2 group"
           >
             Book a Free Strategy Call

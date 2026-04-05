@@ -139,9 +139,9 @@ export default function ServicePageClient({ data, slug }: { data: ServiceData; s
               transition={{ delay: 0.8, duration: 0.6 }}
               className="flex justify-start md:justify-end"
             >
-              <a href="/contact">
+              <a href="https://calendly.com/rajcodes733/30min" target="_blank" rel="noopener noreferrer">
                 <button className="rounded-full bg-primary text-primary-foreground px-10 py-4 text-sm font-semibold hover:brightness-110 transition-all duration-300 shadow-[0_0_60px_-15px_hsl(72_100%_50%/0.3)]">
-                  Start a Project
+                  Book a Call
                 </button>
               </a>
             </motion.div>
@@ -267,12 +267,23 @@ export default function ServicePageClient({ data, slug }: { data: ServiceData; s
                 className="group bg-background overflow-hidden"
               >
                 <div className="aspect-video bg-card relative overflow-hidden">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-foreground/10 tracking-tighter font-semibold text-xl">
+                        {item.category.replace(" ", "_")}_0{idx + 1}
+                      </span>
+                    </div>
+                  )}
+                  {/* Hover overlay */}
                   <div className="absolute inset-0 bg-primary/15 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out z-10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-foreground/10 tracking-tighter font-semibold text-xl">
-                      {item.category.replace(" ", "_")}_0{idx + 1}
-                    </span>
-                  </div>
+                  {/* Gradient fade at bottom */}
+                  <div className="absolute inset-0 bg-linear-to-t from-background/60 to-transparent z-[5]" />
                 </div>
 
                 <div className="p-10">
@@ -294,10 +305,21 @@ export default function ServicePageClient({ data, slug }: { data: ServiceData; s
                       </p>
                     </div>
                   </div>
-                  <button className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-foreground/50 group-hover:text-foreground transition-colors">
-                    View Case Study
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-foreground/50 group-hover:text-foreground transition-colors"
+                    >
+                      Visit Live Project
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-foreground/30">
+                      Case Study
+                    </span>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -354,7 +376,7 @@ export default function ServicePageClient({ data, slug }: { data: ServiceData; s
               evolve?
             </em>
           </h2>
-          <a href="/contact">
+          <a href="https://calendly.com/rajcodes733/30min" target="_blank" rel="noopener noreferrer">
             <button className="rounded-full border border-primary text-primary px-12 py-4 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-500 shadow-[0_0_40px_-10px_hsl(72_100%_50%/0.2)] hover:shadow-[0_0_60px_-10px_hsl(72_100%_50%/0.4)]">
               Book a Discovery Call
             </button>
